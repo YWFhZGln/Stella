@@ -4,6 +4,7 @@ package com.higgsontech.stella;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
@@ -28,6 +29,9 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
 
     Context ctx;
     AlertDialog alertDialog, signupAlertDialog;
+    SharedPreferences sharedpreferences;
+
+    
     BackgroundTask(Context ctx)
     {
         this.ctx=ctx;
@@ -171,6 +175,7 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
                 alertDialog.setMessage("Login Success");
                 alertDialog.setIcon(R.drawable.success);
                 alertDialog.show();
+
                 Intent i=new Intent(ctx,Dashboard.class);
                 ctx.startActivity(i);
             }
