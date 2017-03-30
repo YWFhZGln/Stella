@@ -79,7 +79,7 @@ public class Login extends AppCompatActivity {
 
         BackgroundTask backgroundTask=new BackgroundTask(this);
         backgroundTask.execute(method,u_fname,u_lname,u_gender,u_aadhar,u_designation,u_office_pin,u_home_pin,u_signup_email,u_signup_password,u_mobile);
-        finish();
+         
     }
 
 
@@ -93,7 +93,7 @@ public class Login extends AppCompatActivity {
 
         BackgroundTask backgroundTask=new BackgroundTask(this);
         backgroundTask.execute(method,u_email,u_password);
-        finish();
+        
     }
 
 
