@@ -20,6 +20,9 @@
             android:name=".Login"
             android:label="User Login" >
         </activity>
+        <activity android:name=".Dashboard"
+            android:label="Dashboard">
+        </activity>
     </application>
 
 </manifest>
