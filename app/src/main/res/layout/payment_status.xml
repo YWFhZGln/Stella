@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#004D40">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="#004D40"
+        android:layout_marginTop="20dp">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:layout_marginBottom="20sp">
+            <TextView
+                android:id="@+id/Dues"
+                android:hint="Dues:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:background="#FFDCDCDC"
+                android:textColor="#ff00610E"
+                android:layout_gravity="center"
+                android:padding="12dp"
+                android:drawableLeft="@drawable/ic_business_center_black_24dp"
+                android:drawablePadding="10dp" />
+
+
+
+
+            <TextView
+                android:id="@+id/money"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:background="#FFDCDCDC"
+                android:hint="400:"
+                android:padding="13dp"
+                android:textColor="#ff00610E"
+                android:textSize="18sp"
+                android:textAlignment="center"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:layout_marginBottom="20sp">
+            <TextView
+                android:id="@+id/paid1"
+                android:hint="Paid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:background="#FFDCDCDC"
+                android:textColor="#ff00610E"
+                android:layout_gravity="center"
+                android:padding="12dp"
+                android:drawableLeft="@drawable/ic_business_center_black_24dp"
+                android:drawablePadding="10dp" />
+
+
+            <TextView
+                android:id="@+id/paid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:background="#FFDCDCDC"
+                android:hint="15600"
+                android:padding="13dp"
+                android:textColor="#ff00610E"
+                android:textSize="18sp"
+                android:textAlignment="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/refresh"
+
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

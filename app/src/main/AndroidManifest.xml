@@ -23,6 +23,31 @@
         <activity android:name=".Dashboard"
             android:label="Dashboard">
         </activity>
+
+        <activity android:name=".FixExamCenter"
+            android:label="Fix Exam Center">
+        </activity>
+
+        <activity android:name=".ViewColleges"
+            android:label="View Colleges">
+        </activity>
+
+        <activity android:name=".ImpersonationCheck"
+            android:label="Student's Impersonation Check">
+        </activity>
+
+        <activity android:name=".PaymentStatus"
+            android:label="Payment Status">
+        </activity>
+
+        <activity android:name=".Attendance"
+            android:label="My Attendance">
+        </activity>
+
+        <activity android:name=".ViewProfile"
+            android:label="Profile">
+        </activity>
+
     </application>
 
 </manifest>

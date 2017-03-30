@@ -3,6 +3,7 @@ package com.higgsontech.stella;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
@@ -26,7 +27,7 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
 
 
     Context ctx;
-    AlertDialog alertDialog;
+    AlertDialog alertDialog, signupAlertDialog;
     BackgroundTask(Context ctx)
     {
         this.ctx=ctx;
@@ -37,6 +38,8 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
 
         alertDialog = new AlertDialog.Builder(ctx).create();
         alertDialog.setTitle("Login Information");
+        signupAlertDialog = new AlertDialog.Builder(ctx).create();
+        signupAlertDialog.setTitle("Sign Up Information");
     }
 
     @Override
@@ -154,15 +157,29 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
     @Override
     protected void onPostExecute(String result) {
         if(result.equals("Registration Succes...")) {
-            Toast.makeText(ctx, result, Toast.LENGTH_LONG).show();
-            Log.v("===========Reg","reg");
+
+            Intent i=new Intent(ctx,Login.class);
+            ctx.startActivity(i);
+            signupAlertDialog.setMessage("Sign up success... Please Login");
+            signupAlertDialog.setIcon(R.drawable.success);
+            signupAlertDialog.show();
         }
         else
         {
-//            alertDialog.setMessage(result);
-//            alertDialog.show();
-            Toast.makeText(ctx, result, Toast.LENGTH_LONG).show();
-            Log.v("=====login warnign====","A");
+            if(result.equals("Y"))
+            {
+                alertDialog.setMessage("Login Success");
+                alertDialog.setIcon(R.drawable.success);
+                alertDialog.show();
+                Intent i=new Intent(ctx,Dashboard.class);
+                ctx.startActivity(i);
+            }
+            else
+            {
+                alertDialog.setMessage("Invalid Username or Password! ");
+                alertDialog.setIcon(R.drawable.fail);
+                alertDialog.show();
+            }
         }
     }
 }
