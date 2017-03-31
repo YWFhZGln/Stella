@@ -95,10 +95,11 @@ package com.higgsontech.stella;
 //
 //
 //}
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.os.Handler;
 
 
 public class MainActivity extends Activity {
@@ -109,12 +110,19 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent=new Intent(MainActivity.this,Login.class);
+                startActivity(intent);
+                finish();
 
-    }
 
-    public void gotoLoginActivity(View view){
-        Intent i= new Intent(this,Login.class);
-        startActivity(i);
+            }
+        },1000);
+
+
+
     }
 
 }
