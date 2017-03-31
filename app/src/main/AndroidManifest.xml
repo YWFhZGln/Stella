@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.higgsontech.stella">
 <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
@@ -47,6 +49,28 @@
         <activity android:name=".ViewProfile"
             android:label="Profile">
         </activity>
+
+        <activity android:name=".CityActivity"
+            android:label="Select city for Exam Center">
+           </activity>
+
+
+        <activity
+            android:name=".CenterListActivity"
+            android:label="Center List"
+            android:parentActivityName=".CityActivity">
+            <intent-filter>
+                <action android:name="com.example.aman.CenterListActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".CenterDetailsActivity"
+            android:label="Fix the Exam Center"></activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyC16Z0laYhW8Py27WMT6R9GpFT_HbziBFE"/>
 
     </application>
 
