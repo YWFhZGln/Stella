@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    tools:context="com.higgsontech.stella.Roles.Invigilator">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:padding="10dp">
 
         <LinearLayout
@@ -27,6 +29,7 @@
                 android:padding="5dp">
 
                 <ImageView
+                    android:id="@+id/iPaymentStatus"
                     android:layout_width="120dp"
                     android:layout_height="150dp"
                     android:layout_gravity="center"
@@ -53,7 +56,7 @@
                 android:padding="5dp">
 
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/iImpersonation"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_gravity="center"
@@ -88,6 +91,7 @@
                 android:padding="5dp">
 
                 <ImageView
+                    android:id="@+id/iAttendance"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_gravity="center"
@@ -106,13 +110,14 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="#197077"
-                android:padding="5dp"
-                android:gravity="center_horizontal"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:layout_margin="5dp">
+                android:background="#197077"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="5dp">
                 <ImageView
+                    android:id="@+id/iViewProfile"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_gravity="center"
@@ -122,8 +127,8 @@
                     android:layout_height="wrap_content"
                     android:text="View Profile"
                     android:textColor="#ffffff"
-                    android:textStyle="bold"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
         </LinearLayout>

@@ -6,9 +6,9 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
+        android:icon="@mipmap/ic_nios"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme"
-        android:icon="@mipmap/ic_nios">
+        android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
@@ -69,7 +69,7 @@
             android:label="Deny Permissions to unauthorized users"></activity>
 
 
-        <activity android:name=".Roles.CenterHead" >
+        <activity android:name=".Roles.CenterHead">
     </activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
