@@ -11,5 +11,6 @@ public class Constants {
     public static final String MyPREFERENCES = "MyPREFERENCES";
     public static final String Email = "email" ;
     public static final String Passwd = "password" ;
+    public static final String loginResponse = "lResponse";
     public  static SharedPreferences sharedpreferences = null;
 }
