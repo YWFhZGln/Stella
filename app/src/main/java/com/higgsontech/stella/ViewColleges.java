@@ -41,12 +41,12 @@ public class ViewColleges  extends AppCompatActivity implements GoogleApiClient.
     private String output;
     private CenterAdapter centerAdapter;
     View progressBar;
-    private String loaderId;
 
 
 
     private static final String PLACES_TEXT_SEARCH_URL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json";
     private static final String API_KEY="AIzaSyC16Z0laYhW8Py27WMT6R9GpFT_HbziBFE";
+    private static final String GET_CENTERS_URL="http://higgsontech.com/hack/fetchFixedCenters.php";
 
 
 
@@ -54,6 +54,9 @@ public class ViewColleges  extends AppCompatActivity implements GoogleApiClient.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_colleges);
+
+        final LoaderManager loaderManager=getLoaderManager();
+
 
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
@@ -66,14 +69,13 @@ public class ViewColleges  extends AppCompatActivity implements GoogleApiClient.
         centerAdapter=new CenterAdapter(ViewColleges.this,0,new ArrayList<Center>());
         centerListView.setAdapter(centerAdapter);
 
+
         Button loadCenters=(Button)findViewById(R.id.loadFixedCenters);
         loadCenters.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
-                LoaderManager loaderManager=getLoaderManager();
                 loaderManager.initLoader(5,null,ViewColleges.this);
-                loaderId="5";
 
 
             }
@@ -155,16 +157,18 @@ public class ViewColleges  extends AppCompatActivity implements GoogleApiClient.
 
     @Override
     public Loader<List<Center>> onCreateLoader(int id, Bundle args) {
-        Uri uri=Uri.parse(PLACES_TEXT_SEARCH_URL);
-        Uri.Builder builder=uri.buildUpon();
-        builder.appendQueryParameter("location",lat+","+ltd);
-       // builder.appendQueryParameter("radius","5000");
-        builder.appendQueryParameter("keyword","schools");
-        builder.appendQueryParameter("rankby","distance");
-        builder.appendQueryParameter("key",API_KEY);
+
+            Uri uri=Uri.parse(PLACES_TEXT_SEARCH_URL);
+            Uri.Builder builder=uri.buildUpon();
+            builder.appendQueryParameter("location",lat+","+ltd);
+            // builder.appendQueryParameter("radius","5000");
+            builder.appendQueryParameter("keyword","schools");
+            builder.appendQueryParameter("rankby","distance");
+            builder.appendQueryParameter("key",API_KEY);
 
 
-        return new CenterLoader(this,builder.toString(),"5");
+            return new CenterLoader(this, builder.toString(), "5");
+
     }
 
     @Override
@@ -173,9 +177,12 @@ public class ViewColleges  extends AppCompatActivity implements GoogleApiClient.
         progressBar.setVisibility(View.GONE);
 
         centerAdapter.clear();
+
         if (data != null && !data.isEmpty()) {
             centerAdapter.addAll(data);
         }
+
+
 
 
     }

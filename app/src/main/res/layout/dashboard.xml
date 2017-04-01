@@ -21,8 +21,9 @@
             android:paddingBottom="15dp">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical"
                 android:background="#000000"
                 android:layout_marginEnd="25dp"
@@ -44,8 +45,9 @@
                     android:paddingBottom="5dp"/>
             </LinearLayout>
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical"
                 android:background="#000000"
                 android:padding="5dp"
@@ -80,8 +82,9 @@
             android:paddingBottom="15dp">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical"
                 android:background="#000000"
                 android:padding="2dp"
@@ -105,8 +108,9 @@
                     android:layout_gravity="center_horizontal"/>
             </LinearLayout>
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical"
                 android:background="#000000"
                 android:padding="10dp"
@@ -136,18 +140,18 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingBottom="15dp"
-            android:weightSum="1"
             android:onClick="Attendance">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical"
                 android:background="#000000"
                 android:layout_marginRight="25dp"
                 android:padding="15dp"
                 android:weightSum="1"
-                android:layout_weight="0.34">
+                >
                 <ImageView
                     android:layout_width="120dp"
                     android:layout_height="110dp"
@@ -167,8 +171,9 @@
                     android:layout_gravity="center_horizontal"/>
             </LinearLayout>
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical"
                 android:background="#000000"
                 android:padding="2dp"
