@@ -84,11 +84,14 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_horizontal">
+
                     <Button
+                        android:id="@+id/loginButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:onClick="login"
                         android:text="Login"
-                        android:onClick="login"/>
+                        android:visibility="visible" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"

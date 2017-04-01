@@ -87,6 +87,7 @@ public class Login extends AppCompatActivity {
         u_password      =   et_password.getText().toString();
         String method   =   "login";
 
+        Constants.sharedpreferences = getSharedPreferences("MyPref", 0);
         BackgroundTask backgroundTask=new BackgroundTask(this);
         backgroundTask.execute(method,u_email,u_password);
         
