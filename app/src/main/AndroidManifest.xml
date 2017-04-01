@@ -69,7 +69,7 @@
             android:label="Deny Permissions to unauthorized users"></activity>
 
 
-        <activity android:name=".CenterHead" >
+        <activity android:name=".Roles.CenterHead" >
     </activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"

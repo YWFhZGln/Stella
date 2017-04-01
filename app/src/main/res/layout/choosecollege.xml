@@ -6,7 +6,7 @@
     android:background="#034048"
     android:orientation="vertical"
     android:padding="25dp"
-    tools:context="com.higgsontech.stella.CenterHead">
+    tools:context="com.higgsontech.stella.Roles.CenterHead">
 
     <ImageView
         android:id="@+id/choose_college"

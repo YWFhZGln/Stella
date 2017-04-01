@@ -1,4 +1,4 @@
-package com.higgsontech.stella;
+package com.higgsontech.stella.Roles;
 
 /**
  * Created by GUR23835 on 4/1/2017.
@@ -11,6 +11,9 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.higgsontech.stella.R;
+import com.higgsontech.stella.ViewColleges;
 
 public class CenterHead extends AppCompatActivity {
 

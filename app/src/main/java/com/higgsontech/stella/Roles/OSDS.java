@@ -1,14 +1,16 @@
-package com.higgsontech.stella;
-
-/**
- * Created by GUR23835 on 4/1/2017.
- */
+package com.higgsontech.stella.Roles;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-public class ZoneHead extends AppCompatActivity {
+import com.higgsontech.stella.R;
+
+/**
+ * Created by GUR23835 on 4/1/2017.
+ */
+
+public class OSDS  extends AppCompatActivity {
 
     //Textview to show currently logged in user
     private TextView textView;
@@ -17,8 +19,5 @@ public class ZoneHead extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.center_head);
-
     }
-
-
 }

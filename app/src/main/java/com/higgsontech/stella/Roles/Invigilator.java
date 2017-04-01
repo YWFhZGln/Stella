@@ -1,8 +1,10 @@
-package com.higgsontech.stella;
+package com.higgsontech.stella.Roles;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+
+import com.higgsontech.stella.R;
 
 /**
  * Created by GUR23835 on 4/1/2017.
