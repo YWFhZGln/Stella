@@ -138,7 +138,6 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
                 httpURLConnection.disconnect();
 
                 Constants.updateSharedPrefence(Constants.loginResponse, response);
-//                editor.putString(Constants.id, )
                 JSONObject responseJson=(new JSONObject(response));
                 Constants.updateSharedPrefence(Constants.id, responseJson.getString(Constants.id));
                 Constants.updateSharedPrefence(Constants.fname, responseJson.getString(Constants.fname));

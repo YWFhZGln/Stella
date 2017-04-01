@@ -5,32 +5,17 @@ package com.higgsontech.stella;
  */
 
 
-import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
-import android.widget.EditText;
-
-import android.net.Uri;
-import android.os.Build;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-import org.xmlpull.v1.XmlPullParserFactory;
+import java.util.ArrayList;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.StringReader;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-
-import static com.higgsontech.stella.R.layout.payment_status;
 
 public class Login extends AppCompatActivity {
     /**
@@ -108,15 +93,27 @@ public class Login extends AppCompatActivity {
         try {
             int designation_array = R.array.designation_array;
             switch (Constants.fetchSharedPreferenceValues(Constants.designation)) {
+                case "Zone Head":
+                    Intent zhIntent = new Intent(Login.this, ZoneHead.class);
+                    startActivity(zhIntent);
+                    break;
                 case "Center Head":
-                    LayoutInflater.from(getApplicationContext()).inflate(R.layout.center_list, null, false);
+                    Intent chIntent = new Intent(Login.this, CenterHead.class);
+                    startActivity(chIntent);
                     break;
-                case "Exam Center Head":
-                    //TODO:
-
+                case "Examination Center Head":
+                    Intent intent = new Intent(Login.this, CenterHead.class);
+                    startActivity(intent);
                     break;
+                case "Zonal Officer":
+                    //Intent zoIntent = new Intent(Login.this, CenterHead.class);
+                    //startActivity(zoIntent);
+                    //break;
+                case "Officers on Special Duties":
+                case "Invigilators":
+                case "External Examiners":
                 default:
-                    LayoutInflater.from(getApplicationContext()).inflate(R.layout.center_list, null, false);
+                    Log.v("Error State","Error State");
             }
         } catch (Exception e) {
             e.printStackTrace();

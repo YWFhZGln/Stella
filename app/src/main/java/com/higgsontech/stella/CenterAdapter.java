@@ -20,27 +20,27 @@ public class CenterAdapter extends ArrayAdapter<Center> {
 
 
     public CenterAdapter(@NonNull Context context, @LayoutRes int resource, List<Center> centerList) {
-        super(context, 0,centerList);
+        super(context, 0, centerList);
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        View listItemView=convertView;
-        if (listItemView==null){
-            listItemView= LayoutInflater.from(getContext()).inflate(R.layout.center_list,parent,false);
+        View listItemView = convertView;
+        if (listItemView == null) {
+            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.center_list, parent, false);
 
         }
 
-        Center currentCenter=getItem(position);
+        Center currentCenter = getItem(position);
 
-        TextView nameTextView=(TextView)listItemView.findViewById(R.id.center_name);
+        TextView nameTextView = (TextView) listItemView.findViewById(R.id.center_name);
         nameTextView.setText(currentCenter.getName());
 
-        TextView addressView=(TextView)listItemView.findViewById(R.id.center_address);
+        TextView addressView = (TextView) listItemView.findViewById(R.id.center_address);
         addressView.setText(currentCenter.getAddress());
 
-        TextView sno=(TextView)listItemView.findViewById(R.id.sno);
+        TextView sno = (TextView) listItemView.findViewById(R.id.sno);
         sno.setText(String.valueOf(currentCenter.getSno()));
 
         return listItemView;

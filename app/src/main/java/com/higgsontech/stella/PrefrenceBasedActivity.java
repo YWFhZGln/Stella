@@ -23,13 +23,13 @@ public class PrefrenceBasedActivity extends Activity{
     }
 
     public  void logout(View view){
-       SharedPreferences.Editor editor = Constants.sharedpreferences.edit();
-        editor.clear();
-        editor.commit();
+//       SharedPreferences.Editor editor = Constants.sharedpreferences.edit();
+//        editor.clear();
+//        editor.commit();
     }
 
     public void login(View view){
         BackgroundTask bt = new BackgroundTask(this);
-        bt.execute("login",Constants.sharedpreferences.getString(Constants.Email, Constants.Email).toString(), Constants.sharedpreferences.getString(Constants.Passwd,Constants.Passwd) );
+//        bt.execute("login",Constants.sharedpreferences.getString(Constants.Email, Constants.Email).toString(), Constants.sharedpreferences.getString(Constants.Passwd,Constants.Passwd) );
     }
 }
