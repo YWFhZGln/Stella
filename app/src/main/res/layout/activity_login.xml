@@ -1,48 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         xmlns:android="http://schemas.android.com/apk/res/android">
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:orientation="vertical" android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#197077">
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 >
-                <TextView
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#197077"
+                    android:padding="10dp"
+                    android:gravity="center_horizontal"
+                    android:layout_weight="1">
+                    <TextView
                     android:text="Login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="25dp"
+                    android:textSize="30sp"
+                    android:textColor="#ffffff"
                     android:paddingRight="4dp"
+                    android:textStyle="bold"
                     android:id="@+id/login_text"
                     android:onClick="showLogIn"
+                        android:textColorHighlight="@color/bgWhite"
                     />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#197077"
+                    android:gravity="center_horizontal">
                 <TextView
                     android:text="|"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="35dp"
+                    android:textSize="45sp"
+                    android:textColor="#ffffff"
                     android:paddingRight="4dp"
+                    android:textStyle="bold"
                     android:layout_marginTop="2dp"
                     android:id="@+id/verital_bar"
                     />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#197077"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:gravity="center_horizontal">
                 <TextView
                     android:text="Sign Up"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:textSize="30sp"
+                    android:textColor="#ffffff"
                     android:paddingLeft="4dp"
                     android:id="@+id/signup_text"
                     android:onClick="showSignUp"
                     />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -51,12 +81,14 @@
                 android:orientation="vertical"
                 android:padding="20dp"
                 android:id="@+id/login_layout"
+                android:background="#197077"
                 >
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_gravity="center_horizontal">
+                    android:layout_gravity="center_horizontal"
+                    android:paddingBottom="10dp">
 
                     <EditText
                         android:layout_width="match_parent"
@@ -64,26 +96,37 @@
                         android:id="@+id/email"
                         android:inputType="text"
                         android:hint="Email"
+                        android:textSize="20sp"
+                        android:drawablePadding="5dp"
+                        android:textColorHint="#ffffff"
+                        android:drawableRight="@drawable/ic_email_black_24dp"
                         />
+
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_gravity="center_horizontal">
+                    android:layout_gravity="center_horizontal"
+                    android:paddingBottom="20dp">
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/password"
                         android:inputType="textPassword"
                         android:hint="Password"
+                        android:drawablePadding="5dp"
+                        android:drawableRight="@drawable/ic_vpn_key_black_24dp"
+                        android:textSize="20sp"
+                        android:textColorHint="#ffffff"
                         />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="center_horizontal">
+                    android:gravity="center_horizontal"
+                    android:padding="10dp">
 
                     <Button
                         android:id="@+id/loginButton"
@@ -91,17 +134,26 @@
                         android:layout_height="wrap_content"
                         android:onClick="login"
                         android:text="Login"
+                        android:textStyle="bold"
+                        android:padding="10dp"
+                        android:textSize="30sp"
+                        android:textColor="#197077"
+                        android:background="#ffffff"
                         android:visibility="visible" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="">
+                    android:paddingTop="20dp"
+                    android:background="#197077"
+                    android:paddingBottom="300dp">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Forgot Password?"/>
+                        android:text="Forgot Password?"
+                        android:textSize="16sp"
+                        android:textColor="#ffffff"/>
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
@@ -123,7 +175,9 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/fname"
                         android:inputType="text"
+                        android:textColorHint="#ffffff"
                         android:hint="First Name"
+                        android:textColor="#ffffff"
                         />
                     <EditText
                         android:layout_width="match_parent"
@@ -131,6 +185,8 @@
                         android:id="@+id/lname"
                         android:inputType="text"
                         android:hint="Last Name"
+                        android:textColorHint="#ffffff"
+                        android:textColor="#ffffff"
                         />
                 </LinearLayout>
                 <LinearLayout
@@ -144,6 +200,7 @@
                         android:id="@+id/gender"
                         android:entries="@array/gender_array"
                         android:inputType="text"
+                        android:textColor="#ffffff"
                         android:padding="10dp"
                         android:background="#1111"
                         />
@@ -160,7 +217,9 @@
                         android:id="@+id/aadhar"
                         android:inputType="number"
                         android:maxLength="12"
-                        android:hint="Aadhar Id (####@@@@####)"
+                        android:textColorHint="#ffffff"
+                        android:textColor="#ffffff"
+                        android:hint="Aadhar (####  @@@@  ####)"
                         />
                 </LinearLayout>
                 <LinearLayout
@@ -174,9 +233,9 @@
                         android:id="@+id/designation"
                         android:entries="@array/designation_array"
                         android:inputType="text"
+                        android:textColor="#ffffff"
                         android:padding="10dp"
-                        android:background="#1111"
-                        />
+                        android:background="#1111" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -188,7 +247,9 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/office_pin"
                         android:inputType="number"
+                        android:textColorHint="#ffffff"
                         android:maxLength="6"
+                        android:textColor="#ffffff"
                         android:hint="Office Pincode"
                         />
                 </LinearLayout>
@@ -202,6 +263,8 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/home_pin"
                         android:inputType="number"
+                        android:textColorHint="#ffffff"
+                        android:textColor="#ffffff"
                         android:maxLength="6"
                         android:hint="Home Pincode"
                         />
@@ -217,6 +280,8 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/signup_email"
                         android:inputType="text"
+                        android:textColor="#ffffff"
+                        android:textColorHint="#ffffff"
                         android:hint="Email Id"
                         />
                 </LinearLayout>
@@ -230,6 +295,8 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/signup_password"
                         android:inputType="textPassword"
+                        android:textColor="#ffffff"
+                        android:textColorHint="#ffffff"
                         android:hint="Password"
                         />
                 </LinearLayout>
@@ -243,7 +310,9 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/mobile"
                         android:inputType="number"
+                        android:textColorHint="#ffffff"
                         android:maxLength="11"
+                        android:textColor="#ffffff"
                         android:hint="Mobile No."
                         />
                 </LinearLayout>
@@ -256,7 +325,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sign Up"
-                        android:onClick="register"/>
+                        android:onClick="register"
+                        android:background="#ffffff"
+                        android:textStyle="bold"
+                        android:textSize="25sp"
+                        android:textColor="#197077"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
