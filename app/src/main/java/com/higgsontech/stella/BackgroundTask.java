@@ -144,7 +144,7 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
                 Constants.updateSharedPrefence(Constants.lname, responseJson.getString(Constants.lname));
                 Constants.updateSharedPrefence(Constants.designation, responseJson.getString(Constants.designation));
                 //Constants.updateSharedPrefence(Constants.permission, responseJson.getBoolean(Constants.permission));
-                Constants.updateSharedPrefence(Constants.permission, false);
+                Constants.updateSharedPrefence(Constants.permission, true);
                 return response;
             } catch (MalformedURLException e) {
                 e.printStackTrace();

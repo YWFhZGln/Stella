@@ -90,12 +90,34 @@ public class Login extends AppCompatActivity {
         try {
             int designation_array = R.array.designation_array;
             switch (Constants.fetchSharedPreferenceValues(Constants.designation)) {
-                case "Zone Head":
-                    Intent zhIntent = new Intent(Login.this, ZoneHead.class);
-                    startActivity(zhIntent);
+                case Constants.ROLE_CENTRAL_OFFICER:
+                    if (Constants.fetchSharedPreferenceValues(Constants.permission, true)) {
+                        Intent coIntent = new Intent(Login.this, ZoneHead.class);
+                        startActivity(coIntent);
+                    } else {
+                        Intent deniedIntent = new Intent(Login.this, PermissionDenied.class);
+                        startActivity(deniedIntent);
+                    }
                     break;
-
-                case "Examination Center Head":
+                case Constants.ROLE_ZONAL_OFFICER:
+                    if (Constants.fetchSharedPreferenceValues(Constants.permission, true)) {
+                        Intent zhIntent = new Intent(Login.this, ZoneHead.class);
+                        startActivity(zhIntent);
+                    } else {
+                        Intent deniedIntent = new Intent(Login.this, PermissionDenied.class);
+                        startActivity(deniedIntent);
+                    }
+                    break;
+                case Constants.ROLE_OSDS:
+                    if (Constants.fetchSharedPreferenceValues(Constants.permission, true)) {
+                        Intent osdsIntent = new Intent(Login.this, ZoneHead.class);
+                        startActivity(osdsIntent);
+                    } else {
+                        Intent deniedIntent = new Intent(Login.this, PermissionDenied.class);
+                        startActivity(deniedIntent);
+                    }
+                    break;
+                case Constants.ROLE_EXAM_CENTER_HEAD:
                     if (Constants.fetchSharedPreferenceValues(Constants.permission, true)) {
                         Intent intent = new Intent(Login.this, CenterHead.class);
                         startActivity(intent);
@@ -104,13 +126,14 @@ public class Login extends AppCompatActivity {
                         startActivity(deniedIntent);
                     }
                     break;
-                case "Zonal Officer":
-                    //Intent zoIntent = new Intent(Login.this, CenterHead.class);
-                    //startActivity(zoIntent);
-                    //break;
-                case "Officers on Special Duties":
-                case "Invigilators":
-                case "External Examiners":
+                case Constants.ROLE_INVIGILATOR:
+                    if (Constants.fetchSharedPreferenceValues(Constants.permission, true)) {
+                        Intent intent = new Intent(Login.this, ZoneHead.class);
+                        startActivity(intent);
+                    } else {
+                        Intent deniedIntent = new Intent(Login.this, PermissionDenied.class);
+                        startActivity(deniedIntent);
+                    }
                 default:
                     Log.v("Error State", "Error State");
             }
