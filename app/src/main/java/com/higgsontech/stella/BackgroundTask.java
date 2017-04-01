@@ -140,6 +140,9 @@ public class BackgroundTask extends AsyncTask<String,Void,String> {
                 bufferedReader.close();
                 IS.close();
                 httpURLConnection.disconnect();
+                SharedPreferences.Editor editor = Constants.sharedpreferences.edit();
+                editor.putString(Constants.loginResponse, response);
+                editor.commit();
                 return response;
 
             } catch (MalformedURLException e) {
