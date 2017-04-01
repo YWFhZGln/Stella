@@ -60,54 +60,71 @@ public class CenterLoader extends AsyncTaskLoader<List<Center>> {
 
     private List<Center> parseJson(String jsonResponse) {
 
-        if(TextUtils.isEmpty(jsonResponse)) {
+        if (TextUtils.isEmpty(jsonResponse)) {
             return null;
         }
 
         List<Center> centerList = new ArrayList<>();
 
+
         try {
 
-            JSONObject baseJSONResponse=new JSONObject(jsonResponse);
 
-            JSONArray centerArray=baseJSONResponse.getJSONArray("results");
+            if (loaderId == "6") {
 
-            for (int i=0;i<centerArray.length();i++){
-                JSONObject currentCenter=centerArray.getJSONObject(i);
-
-                String name=currentCenter.getString("name");
-                String placeId=currentCenter.getString("place_id");
-                if(loaderId=="5") {
-
-                  //  Center center=new Center(i+1,name,"",placeId);
-                   // centerList.add(center);
-                   // String address = currentCenter.getString("formatted_address");
-                    JSONObject geometry=currentCenter.getJSONObject("geometry");
-                    JSONObject location=geometry.getJSONObject("location");
-
-                    double lat=location.getDouble("lat");
-                    double  lng=location.getDouble("lng");
-
-                    Center center=new Center(i+1,name,"",placeId,lat,lng);
+                JSONArray jsonArray = new JSONArray(jsonResponse);
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject currentId = jsonArray.getJSONObject(i);
+                    String placeId=currentId.getString("placeId");
+                    Log.e(LOG_TAG,placeId);
+                    Center center=new Center(i+1,placeId);
                     centerList.add(center);
-
-
-
-
                 }
-                else {
-                    String address = currentCenter.getString("formatted_address");
-                    JSONObject geometry=currentCenter.getJSONObject("geometry");
-                    JSONObject location=geometry.getJSONObject("location");
-
-                    double lat=location.getDouble("lat");
-                    double  lng=location.getDouble("lng");
-
-                    Center center=new Center(i+1,name,address,placeId,lat,lng);
-                    centerList.add(center);
 
 
+                } else {
+
+
+                JSONObject baseJSONResponse = new JSONObject(jsonResponse);
+
+
+                JSONArray centerArray = baseJSONResponse.getJSONArray("results");
+
+                for (int i = 0; i < centerArray.length(); i++) {
+                    JSONObject currentCenter = centerArray.getJSONObject(i);
+
+                    String name = currentCenter.getString("name");
+                    String placeId = currentCenter.getString("place_id");
+                    if (loaderId == "5") {
+
+                        //  Center center=new Center(i+1,name,"",placeId);
+                        // centerList.add(center);
+                        // String address = currentCenter.getString("formatted_address");
+                        JSONObject geometry = currentCenter.getJSONObject("geometry");
+                        JSONObject location = geometry.getJSONObject("location");
+
+                        double lat = location.getDouble("lat");
+                        double lng = location.getDouble("lng");
+
+                        Center center = new Center(i + 1, name, "", placeId, lat, lng);
+                        centerList.add(center);
+
+
+                    } else {
+                        String address = currentCenter.getString("formatted_address");
+                        JSONObject geometry = currentCenter.getJSONObject("geometry");
+                        JSONObject location = geometry.getJSONObject("location");
+
+                        double lat = location.getDouble("lat");
+                        double lng = location.getDouble("lng");
+
+                        Center center = new Center(i + 1, name, address, placeId, lat, lng);
+                        centerList.add(center);
+
+
+                    }
                 }
+
 
 
             }
@@ -118,7 +135,6 @@ public class CenterLoader extends AsyncTaskLoader<List<Center>> {
 
         return centerList;
     }
-
     private String makeHttpRequest(String urlString){
 
         URL url=null;
@@ -154,6 +170,7 @@ public class CenterLoader extends AsyncTaskLoader<List<Center>> {
                 }
             }
         }
+        Log.e(LOG_TAG,jsonResponse);
 
         return jsonResponse;
     }
