@@ -27,8 +27,8 @@ import java.util.List;
 public class CenterLoader extends AsyncTaskLoader<List<Center>> {
 
     public static final String LOG_TAG = CenterLoader.class.getSimpleName();
-    private String url;
-    private String loaderId;
+    private static String url;
+    private static String loaderId;
     public CenterLoader(Context context,String u,String lId) {
         super(context);
         this.url=u;
@@ -58,7 +58,7 @@ public class CenterLoader extends AsyncTaskLoader<List<Center>> {
 
     }
 
-    private List<Center> parseJson(String jsonResponse) {
+    public static List<Center> parseJson(String jsonResponse) {
 
         if (TextUtils.isEmpty(jsonResponse)) {
             return null;
@@ -68,21 +68,6 @@ public class CenterLoader extends AsyncTaskLoader<List<Center>> {
 
 
         try {
-
-
-            if (loaderId == "6") {
-
-                JSONArray jsonArray = new JSONArray(jsonResponse);
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    JSONObject currentId = jsonArray.getJSONObject(i);
-                    String placeId=currentId.getString("placeId");
-                    Log.e(LOG_TAG,placeId);
-                    Center center=new Center(i+1,placeId);
-                    centerList.add(center);
-                }
-
-
-                } else {
 
 
                 JSONObject baseJSONResponse = new JSONObject(jsonResponse);
@@ -127,7 +112,7 @@ public class CenterLoader extends AsyncTaskLoader<List<Center>> {
 
 
 
-            }
+
 
         } catch (JSONException e) {
             Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);
@@ -135,7 +120,7 @@ public class CenterLoader extends AsyncTaskLoader<List<Center>> {
 
         return centerList;
     }
-    private String makeHttpRequest(String urlString){
+    public static String makeHttpRequest(String urlString){
 
         URL url=null;
         try {
