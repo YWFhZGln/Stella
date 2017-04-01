@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.EditText;
 
 /**
  * Created by ishu on 30/3/17.
@@ -20,7 +19,7 @@ public class Dashboard extends AppCompatActivity {
 
     public void FixExamCenter(View view)
     {
-        Intent i= new Intent(this,FixExamCenter.class);
+        Intent i= new Intent(this,CityActivity.class);
         startActivity(i);
     }
     public void ViewColleges(View view)

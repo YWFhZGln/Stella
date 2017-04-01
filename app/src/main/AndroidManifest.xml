@@ -26,10 +26,6 @@
             android:label="Dashboard">
         </activity>
 
-        <activity android:name=".FixExamCenter"
-            android:label="Fix Exam Center">
-        </activity>
-
         <activity android:name=".ViewColleges"
             android:label="View Colleges">
         </activity>
