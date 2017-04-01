@@ -29,7 +29,7 @@ public class PrefrenceBasedActivity extends Activity{
     }
 
     public void login(View view){
-        BackgroundTask bt = new BackgroundTask(this);
+//        BackgroundTask bt = new BackgroundTask(this);
 //        bt.execute("login",Constants.sharedpreferences.getString(Constants.Email, Constants.Email).toString(), Constants.sharedpreferences.getString(Constants.Passwd,Constants.Passwd) );
     }
 }

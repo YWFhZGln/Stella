@@ -33,7 +33,7 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
     private Context ctx;
     private AlertDialog alertDialog, signupAlertDialog;
 
-    BackgroundTask(Context ctx) {
+    public BackgroundTask(Context ctx) {
         this.ctx = ctx;
     }
 

@@ -34,7 +34,7 @@
                     android:textStyle="bold"
                     android:id="@+id/login_text"
                     android:onClick="showLogIn"
-                        android:textColorHighlight="@color/bgWhite"
+                        android:textColorHighlight="@android:color/white"
                     />
                 </LinearLayout>
                 <LinearLayout
