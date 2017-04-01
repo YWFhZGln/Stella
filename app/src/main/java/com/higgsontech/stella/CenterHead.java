@@ -27,7 +27,7 @@ public class CenterHead extends AppCompatActivity {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent viewCollegeIntent  = new Intent(CenterHead.this, ViewColleges.class);
+                Intent viewCollegeIntent = new Intent(CenterHead.this, ViewColleges.class);
                 startActivity(viewCollegeIntent);
             }
         });
@@ -40,12 +40,11 @@ public class CenterHead extends AppCompatActivity {
             //calling logout method when the logout button is clicked
             //chooseCollege();
 
-            Log.v("Test","test");
+            Log.v("Test", "test");
         }
         return super.onOptionsItemSelected(item);
     }
 
     private void chooseCollege() {
-
     }
 }

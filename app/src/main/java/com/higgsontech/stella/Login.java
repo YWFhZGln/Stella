@@ -97,6 +97,7 @@ public class Login extends AppCompatActivity {
                     Intent zhIntent = new Intent(Login.this, ZoneHead.class);
                     startActivity(zhIntent);
                     break;
+
                 case "Center Head":
                     Intent chIntent = new Intent(Login.this, CenterHead.class);
                     startActivity(chIntent);
