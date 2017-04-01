@@ -1,49 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context="com.example.aman.fixcenter.CenterDetailsActivity">
+    tools:context="com.higgsontech.stella.CenterDetailsActivity">
 
-    <LinearLayout
-        android:id="@+id/ll"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/centerName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <EditText
-            android:id="@+id/sCapacity"
-            android:hint="Enter Student Capacity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <EditText
-            android:id="@+id/fCapacity"
-            android:hint="Enter Faculty Capacity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/fixCenter"
-            android:text="Fix Exam Centre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
-
-    </LinearLayout>
-
-        <Button
-           android:id="@+id/goBack"
-           android:text="Cancel"
-            android:layout_alignParentBottom="true"
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+       <LinearLayout
+           android:id="@+id/ll"
+           android:orientation="vertical"
            android:layout_width="match_parent"
-           android:layout_height="wrap_content"/>
+           android:layout_height="wrap_content">
 
-</RelativeLayout>
+           <EditText
+               android:id="@+id/centerName"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               />
+
+
+           <EditText
+               android:id="@+id/roomNumbers"
+               android:hint="Enter Number of Rooms"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:inputType="number"
+
+               />
+
+           <EditText
+               android:id="@+id/sCapacity"
+               android:hint="Enter Student Capacity"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:inputType="number"/>
+           <EditText
+               android:id="@+id/fCapacity"
+               android:hint="Enter Faculty Capacity"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:inputType="number"/>
+
+           <RadioGroup
+               android:id="@+id/selectType"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal">
+               <RadioButton
+                   android:id="@+id/boys"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Boys Only"/>
+               <RadioButton
+                   android:id="@+id/girls"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Girls Only"/>
+               <RadioButton
+                   android:id="@+id/both"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Both"/>
+
+           </RadioGroup>
+
+           <Button
+               android:id="@+id/fixCenter"
+               android:text="Fix Exam Centre"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               />
+           <Button
+               android:id="@+id/goBack"
+               android:text="Cancel"
+               android:layout_alignParentBottom="true"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+
+       </LinearLayout>
+
+   </ScrollView>
+
+
+</LinearLayout>

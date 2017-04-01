@@ -4,16 +4,11 @@ package com.higgsontech.stella;
  * Created by cloud on 30/3/17.
  */
 
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.EditText;
-
-        import android.net.Uri;
-        import android.os.Build;
-        import android.os.Bundle;
-        import android.support.v7.app.AppCompatActivity;
-        import android.view.View;
-        import android.widget.EditText;
-        import android.widget.LinearLayout;
+import android.widget.LinearLayout;
 
 /**
  * Created by cloud on 30/3/17.
@@ -31,6 +26,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
 
 
     }
@@ -79,7 +75,7 @@ public class Login extends AppCompatActivity {
 
         BackgroundTask backgroundTask=new BackgroundTask(this);
         backgroundTask.execute(method,u_fname,u_lname,u_gender,u_aadhar,u_designation,u_office_pin,u_home_pin,u_signup_email,u_signup_password,u_mobile);
-         
+
     }
 
 

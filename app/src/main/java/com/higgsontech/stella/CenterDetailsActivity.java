@@ -7,11 +7,14 @@ import android.content.Intent;
 import android.content.Loader;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
@@ -27,6 +30,18 @@ import java.net.URL;
 public class CenterDetailsActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String>{
 
     String[] s;
+    String placeId;
+    String name;
+
+    String roomNum;
+    String studentCapacity;
+    String facultyCapacity;
+    String centerType;
+   private EditText sCap;
+    private EditText roomNums;
+   private EditText fCapacity;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,19 +55,30 @@ public class CenterDetailsActivity extends AppCompatActivity implements LoaderMa
 //        ArrayList<String> centerData=(ArrayList<String>)bundle.getStringArrayList("itemData");
       Log.d("id",s[0]);
 
-        TextView centerName=(TextView)findViewById(R.id.centerName);
-        TextView sCapacity=(TextView)findViewById(R.id.sCapacity);
-        TextView fCapacity=(TextView)findViewById(R.id.fCapacity);
+        EditText centerName=(EditText)findViewById(R.id.centerName);
         Button fixCenterButton=(Button)findViewById(R.id.fixCenter);
         Button cancelButton=(Button)findViewById(R.id.goBack);
+        RadioGroup radioGroup=(RadioGroup)findViewById(R.id.selectType);
         centerName.setText(s[0]);
-        String studentCapacity=sCapacity.getText().toString();
-        String facultyCapacity=fCapacity.getText().toString();
+        Log.e("ghfg",roomNum+"room");
+
 
 
         fixCenterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.e("ghfg","click");
+                sCap = (EditText)findViewById(R.id.sCapacity);
+                roomNums = (EditText)findViewById(R.id.roomNumbers);
+                fCapacity = (EditText)findViewById(R.id.fCapacity);
+                placeId = s[2];
+                name = s[1];
+                roomNum = roomNums.getText().toString();
+                studentCapacity = sCap.getText().toString();
+                facultyCapacity = fCapacity.getText().toString();
+
+
+
 
                 LoaderManager loaderManager=getLoaderManager();
                 loaderManager.initLoader(1,null,CenterDetailsActivity.this);
@@ -66,16 +92,38 @@ public class CenterDetailsActivity extends AppCompatActivity implements LoaderMa
             }
         });
 
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                Log.e("ghfg","radio");
+
+                if(checkedId == R.id.boys) {
+                    centerType="boys only";
+                } else if(checkedId == R.id.girls) {
+                    centerType="girls only";
+                } else {
+                    centerType="both";
+                }
+
+            }
+        });
+
 
     }
 
     @Override
     public Loader onCreateLoader(int id, Bundle args) {
-        return new fixCenter(this,s[2]);
+        Log.e("ghfg","oncreate");
+
+        return new FixCenter(this,placeId,name,roomNum,studentCapacity,facultyCapacity,centerType);
     }
 
     @Override
     public void onLoadFinished(Loader<String> loader, String data) {
+//        AlertDialog alertDialog=new AlertDialog.Builder(this).create();
+//        alertDialog.setTitle(data.toString());
+        finish();
+        Toast.makeText(this,data,Toast.LENGTH_SHORT).show();
 
     }
 
@@ -85,29 +133,51 @@ public class CenterDetailsActivity extends AppCompatActivity implements LoaderMa
 
     }
 
-    public class fixCenter extends AsyncTaskLoader<String> {
+    public static class FixCenter extends AsyncTaskLoader<String> {
 
-        private String mPlaceId;
+        private String placeId;
+        private String name;
+        private String noOfRooms;
+        private String sCap;
+        private String fCap;
+        private String centerType;
 
-        public fixCenter(Context context, String placeId) {
+        public FixCenter(Context context, String pi, String n, String nor, String sc, String fc, String ct) {
             super(context);
-            mPlaceId = placeId;
+            this.placeId=pi;
+            this.name=n;
+            this.noOfRooms=nor;
+            this.sCap=sc;
+            this.fCap=fc;
+            this.centerType=ct;
         }
+
+
+        @Override
+        protected void onStartLoading() {
+            forceLoad();
+        }
+
 
         @Override
         public String loadInBackground() {
+            Log.e("ghfg","loadInBackground");
 
-            String res=makeHttpRequest(mPlaceId);
+
+            String res=makeHttpRequest();
             return res;
         }
 
-        private String makeHttpRequest(String pId) {
+        private String makeHttpRequest() {
             URL url = null;
             try {
-                url = new URL("http://");
+                url = new URL("http://higgsontech.com/hack/fixcenters.php");
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
+
+            Log.e("ghfg",noOfRooms+"noofroom");
+
 
             String response = "";
             InputStream inputStream = null;
@@ -120,9 +190,18 @@ public class CenterDetailsActivity extends AppCompatActivity implements LoaderMa
                 httpURLConnection.setDoOutput(true);
                 httpURLConnection.setDoInput(true);
 
+                Log.e("ghfg","makehttp called");
+
+
                 Uri.Builder builder = new Uri.Builder();
-                builder.appendQueryParameter("centerPlaceId",pId);
+                builder.appendQueryParameter("centerPlaceId",placeId);
+                builder.appendQueryParameter("name",name);
+                builder.appendQueryParameter("roomNumbers",noOfRooms);
+                builder.appendQueryParameter("sCapacity",sCap);
+                builder.appendQueryParameter("fCapacity",fCap);
+                builder.appendQueryParameter("centerType",centerType);
                 String query = builder.build().getEncodedQuery();
+                Log.e("query",query);
 
 
                 OutputStream outputStream = new BufferedOutputStream(httpURLConnection.getOutputStream());
@@ -151,6 +230,7 @@ public class CenterDetailsActivity extends AppCompatActivity implements LoaderMa
                 }
 
             }
+            Log.e("dsd",response);
             return response;
         }
     }
