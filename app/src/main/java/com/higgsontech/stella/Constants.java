@@ -17,6 +17,7 @@ public class Constants {
     public static final String fname = "fname";
     public static final String lname = "lname";
     public static final String designation = "designation";
+    public static final String permission = "permissions";
 
     private static SharedPreferences sharedpreferences = null;
 
@@ -28,11 +29,20 @@ public class Constants {
         editor.putString(key, value);
         editor.commit();
     }
+
+    public static void  updateSharedPrefence(String key, Boolean value){
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putBoolean(key, value);
+        editor.commit();
+    }
+
     public static String fetchSharedPreferenceValues(String key){
         return sharedpreferences.getString(key,"NULL");
     }
 
-
+    public static Boolean fetchSharedPreferenceValues(String key, boolean isBoolean){
+        return sharedpreferences.getBoolean(key,false);
+    }
     //Keys for email and password as defined in our $_POST['key'] in login.php
     public static final String KEY_EMAIL = "email";
     public static final String KEY_PASSWORD = "password";

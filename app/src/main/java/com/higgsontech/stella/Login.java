@@ -9,12 +9,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-
-import java.util.ArrayList;
 
 
 public class Login extends AppCompatActivity {
@@ -98,13 +95,14 @@ public class Login extends AppCompatActivity {
                     startActivity(zhIntent);
                     break;
 
-                case "Center Head":
-                    Intent chIntent = new Intent(Login.this, CenterHead.class);
-                    startActivity(chIntent);
-                    break;
                 case "Examination Center Head":
-                    Intent intent = new Intent(Login.this, CenterHead.class);
-                    startActivity(intent);
+                    if (Constants.fetchSharedPreferenceValues(Constants.permission, true)) {
+                        Intent intent = new Intent(Login.this, CenterHead.class);
+                        startActivity(intent);
+                    } else {
+                        Intent deniedIntent = new Intent(Login.this, PermissionDenied.class);
+                        startActivity(deniedIntent);
+                    }
                     break;
                 case "Zonal Officer":
                     //Intent zoIntent = new Intent(Login.this, CenterHead.class);
@@ -114,7 +112,7 @@ public class Login extends AppCompatActivity {
                 case "Invigilators":
                 case "External Examiners":
                 default:
-                    Log.v("Error State","Error State");
+                    Log.v("Error State", "Error State");
             }
         } catch (Exception e) {
             e.printStackTrace();

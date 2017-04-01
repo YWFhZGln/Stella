@@ -21,12 +21,10 @@
         <item>Others</item>
     </string-array>
     <string-array name="designation_array">
-        <item>Zone Head</item>
+        <item>Central Officer</item>
         <item>Zonal Officer</item>
         <item>Exam Center Head</item>
-        <item>Officers on Special Duties</item>
         <item>Invigilators</item>
-        <item>External Examiners</item>
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
