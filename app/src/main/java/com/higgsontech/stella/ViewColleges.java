@@ -46,7 +46,6 @@ public class ViewColleges  extends AppCompatActivity implements GoogleApiClient.
 
     private static final String PLACES_TEXT_SEARCH_URL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json";
     private static final String API_KEY="AIzaSyC16Z0laYhW8Py27WMT6R9GpFT_HbziBFE";
-    private static final String GET_CENTERS_URL="http://higgsontech.com/hack/fetchFixedCenters.php";
 
 
 
