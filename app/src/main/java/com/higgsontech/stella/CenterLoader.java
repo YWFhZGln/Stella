@@ -28,9 +28,11 @@ public class CenterLoader extends AsyncTaskLoader<List<Center>> {
 
     public static final String LOG_TAG = CenterLoader.class.getSimpleName();
     private String url;
-    public CenterLoader(Context context,String u) {
+    private String loaderId;
+    public CenterLoader(Context context,String u,String lId) {
         super(context);
-        url=u;
+        this.url=u;
+        this.loaderId=lId;
     }
 
     @Override
@@ -75,16 +77,38 @@ public class CenterLoader extends AsyncTaskLoader<List<Center>> {
 
                 String name=currentCenter.getString("name");
                 String placeId=currentCenter.getString("place_id");
-                String address=currentCenter.getString("formatted_address");
+                if(loaderId=="5") {
 
-                JSONObject geometry=currentCenter.getJSONObject("geometry");
-                JSONObject location=geometry.getJSONObject("location");
+                  //  Center center=new Center(i+1,name,"",placeId);
+                   // centerList.add(center);
+                   // String address = currentCenter.getString("formatted_address");
+                    JSONObject geometry=currentCenter.getJSONObject("geometry");
+                    JSONObject location=geometry.getJSONObject("location");
 
-                double lat=location.getDouble("lat");
-                double  lng=location.getDouble("lng");
+                    double lat=location.getDouble("lat");
+                    double  lng=location.getDouble("lng");
 
-                Center center=new Center(i+1,name,address,placeId,lat,lng);
-                centerList.add(center);
+                    Center center=new Center(i+1,name,"",placeId,lat,lng);
+                    centerList.add(center);
+
+
+
+
+                }
+                else {
+                    String address = currentCenter.getString("formatted_address");
+                    JSONObject geometry=currentCenter.getJSONObject("geometry");
+                    JSONObject location=geometry.getJSONObject("location");
+
+                    double lat=location.getDouble("lat");
+                    double  lng=location.getDouble("lng");
+
+                    Center center=new Center(i+1,name,address,placeId,lat,lng);
+                    centerList.add(center);
+
+
+                }
+
 
             }
 

@@ -24,6 +24,7 @@ public class CenterListActivity extends AppCompatActivity implements GoogleApiCl
     public static final String LOG_TAG = CenterListActivity.class.getSimpleName();
 
     private String cityName;
+    private String loaderId;
 
 
     private GoogleApiClient apiClient;
@@ -73,6 +74,8 @@ public class CenterListActivity extends AppCompatActivity implements GoogleApiCl
 
         LoaderManager loaderManager=getLoaderManager();
         loaderManager.initLoader(0,null,this);
+        loaderId="0";
+
 
 
 
@@ -103,7 +106,7 @@ public class CenterListActivity extends AppCompatActivity implements GoogleApiCl
         builder.appendQueryParameter("query","govt"+"school"+"in"+cityName);
         builder.appendQueryParameter("key",API_KEY);
 
-        return new CenterLoader(this,builder.toString());
+        return new CenterLoader(this,builder.toString(),loaderId);
     }
 
     @Override

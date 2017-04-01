@@ -21,6 +21,7 @@ public class Center {
        this.studentType=d;
 
    }
+   //Center(int sno,String n,)
 
    Center(int sno,String n,String add,String placeId,double lat,double lng){
        this.sno=sno;

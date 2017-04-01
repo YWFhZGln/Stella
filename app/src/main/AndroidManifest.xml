@@ -3,10 +3,12 @@
     package="com.higgsontech.stella">
 <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        android:icon="@mipmap/ic_nios">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >

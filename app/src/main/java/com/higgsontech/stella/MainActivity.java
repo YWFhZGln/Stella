@@ -113,7 +113,7 @@ public class MainActivity extends Activity {
     }
 
     public void gotoLoginActivity(View view){
-        Intent i= new Intent(this,Login.class);
+        Intent i= new Intent(this,Dashboard.class);
         startActivity(i);
     }
 
