@@ -19,11 +19,11 @@ public class Constants {
     public static final String designation = "designation";
     public static final String permission = "permissions";
 
-    /*Offcier Roles*/
+    /*Officer Roles*/
     public static final String ROLE_CENTRAL_OFFICER = "Central Officer";
     public static final String ROLE_ZONAL_OFFICER = "Zonal Officer";
     public static final String ROLE_OSDS = "Officers on Special Duties";
-    public static final String ROLE_EXAM_CENTER_HEAD = "Examination Center Head  ";
+    public static final String ROLE_EXAM_CENTER_HEAD = "Examination Center Head";
     public static final String ROLE_INVIGILATOR = "Invigilators";
 
 

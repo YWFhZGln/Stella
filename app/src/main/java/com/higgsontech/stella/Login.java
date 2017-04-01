@@ -88,11 +88,10 @@ public class Login extends AppCompatActivity {
         BackgroundTask backgroundTask = new BackgroundTask(this);
         backgroundTask.execute(method, u_email, u_password);
         try {
-            int designation_array = R.array.designation_array;
             switch (Constants.fetchSharedPreferenceValues(Constants.designation)) {
                 case Constants.ROLE_CENTRAL_OFFICER:
                     if (Constants.fetchSharedPreferenceValues(Constants.permission, true)) {
-                        Intent coIntent = new Intent(Login.this, ZoneHead.class);
+                        Intent coIntent = new Intent(Login.this, CentralOfficer.class);
                         startActivity(coIntent);
                     } else {
                         Intent deniedIntent = new Intent(Login.this, PermissionDenied.class);
@@ -110,7 +109,7 @@ public class Login extends AppCompatActivity {
                     break;
                 case Constants.ROLE_OSDS:
                     if (Constants.fetchSharedPreferenceValues(Constants.permission, true)) {
-                        Intent osdsIntent = new Intent(Login.this, ZoneHead.class);
+                        Intent osdsIntent = new Intent(Login.this, OSDS.class);
                         startActivity(osdsIntent);
                     } else {
                         Intent deniedIntent = new Intent(Login.this, PermissionDenied.class);
@@ -128,7 +127,7 @@ public class Login extends AppCompatActivity {
                     break;
                 case Constants.ROLE_INVIGILATOR:
                     if (Constants.fetchSharedPreferenceValues(Constants.permission, true)) {
-                        Intent intent = new Intent(Login.this, ZoneHead.class);
+                        Intent intent = new Intent(Login.this, Invigilator.class);
                         startActivity(intent);
                     } else {
                         Intent deniedIntent = new Intent(Login.this, PermissionDenied.class);
