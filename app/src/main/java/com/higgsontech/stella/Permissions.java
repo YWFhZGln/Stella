@@ -35,6 +35,7 @@ public class Permissions extends AppCompatActivity {
         final Context ctx = this;
         if(Constants.PERMISSION_PENDING.equals(null)) {
 
+
             b.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     String method = "permission";

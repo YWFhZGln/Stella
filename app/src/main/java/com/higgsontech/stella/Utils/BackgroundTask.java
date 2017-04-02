@@ -27,14 +27,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-import static com.higgsontech.stella.Utils.Constants.PERMISSIONS_URL;
-
 
 public class BackgroundTask extends AsyncTask<String, Void, String> {
 
 
     private Context ctx;
-    private AlertDialog alertDialog, signupAlertDialog,permissionAlertDialog;
+    private AlertDialog alertDialog, signupAlertDialog, permissionAlertDialog;
 
     public BackgroundTask(Context ctx) {
         this.ctx = ctx;
@@ -48,7 +46,7 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
         signupAlertDialog = new AlertDialog.Builder(ctx).create();
         signupAlertDialog.setTitle("Sign Up Information");
         permissionAlertDialog = new AlertDialog.Builder(ctx).create();
-                permissionAlertDialog.setTitle("Permission Information");
+        permissionAlertDialog.setTitle("Permission Information");
     }
 
     @Override
@@ -147,7 +145,7 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
                 //Constants.updateSharedPrefence(Constants.permission, responseJson.getBoolean(Constants.permission));
                 Constants.updateSharedPrefence(Constants.permission, true);
 
-                String u_id=Constants.fetchSharedPreferenceValues(Constants.id);
+                String u_id = Constants.fetchSharedPreferenceValues(Constants.id);
 
                 return response;
             } catch (MalformedURLException e) {
@@ -158,29 +156,28 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
                 e.printStackTrace();
             }
 
-        }
-        else if (method.equals("permission")) {
+        } else if (method.equals("permission")) {
 
-            String submethod, permissionId,userId;
-            submethod       = params[1];
-            permissionId    = params[2];
-            userId          = params[2];
+            String submethod, permissionId, userId;
+            submethod = params[1];
+            permissionId = params[2];
+            userId = params[2];
 
             try {
 
-                URL url=null;
-                url=new URL(PERMISSIONS_URL);
+                URL url = null;
+                url = new URL(Constants.id);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setDoOutput(true);
                 httpURLConnection.setDoInput(true);
 
 
-                Uri.Builder builder=new Uri.Builder();
-                builder.appendQueryParameter("method",submethod);
-                builder.appendQueryParameter("permissionId",permissionId);
-                builder.appendQueryParameter("userId",userId);
-                String query=builder.build().getEncodedQuery();
+                Uri.Builder builder = new Uri.Builder();
+                builder.appendQueryParameter("method", submethod);
+                builder.appendQueryParameter("permissionId", permissionId);
+                builder.appendQueryParameter("userId", userId);
+                String query = builder.build().getEncodedQuery();
 
                 OutputStream OS = httpURLConnection.getOutputStream();
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(OS, "UTF-8"));
@@ -211,7 +208,7 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
 //                //Constants.updateSharedPrefence(Constants.permission, responseJson.getBoolean(Constants.permission));
 //                Constants.updateSharedPrefence(Constants.permission, true);
 
-              //  String u_id=Constants.fetchSharedPreferenceValues(Constants.id);
+                //  String u_id=Constants.fetchSharedPreferenceValues(Constants.id);
 
                 return response;
             } catch (MalformedURLException e) {
@@ -239,12 +236,11 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
             signupAlertDialog.setMessage("Sign up success... Please Login");
             signupAlertDialog.setIcon(R.drawable.success);
             signupAlertDialog.show();
-        } else if(result.equals(Constants.PERMISSION_PENDING)){
+        } else if (result.equals(Constants.PERMISSION_PENDING)) {
             alertDialog.setMessage("Your permission request has been submitted to us. We'll let you notify about that.");
             alertDialog.setIcon(R.drawable.success);
             alertDialog.show();
-        }
-            else {
+        } else {
             if (result.equals("Y")) {
                 alertDialog.setMessage("Login Success");
                 alertDialog.setIcon(R.drawable.success);

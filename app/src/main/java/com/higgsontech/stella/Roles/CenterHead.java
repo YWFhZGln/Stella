@@ -4,16 +4,12 @@ package com.higgsontech.stella.Roles;
  * Created by GUR23835 on 4/1/2017.
  */
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.higgsontech.stella.R;
-import com.higgsontech.stella.ViewColleges;
 
 public class CenterHead extends AppCompatActivity {
 
@@ -24,6 +20,8 @@ public class CenterHead extends AppCompatActivity {
     private ImageView echPayments;
     private ImageView echCalender;
     private ImageView echViewProfile;
+    private ImageView eshImpersonation;
+    private ImageView eshPermission;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +71,22 @@ public class CenterHead extends AppCompatActivity {
         });
         echPayments = (ImageView) findViewById(R.id.echPayments);
         echPayments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent viewCollegeIntent = new Intent(CenterHead.this, ViewColleges.class);
+//                startActivity(viewCollegeIntent);
+            }
+        });
+        eshImpersonation = (ImageView) findViewById(R.id.eshImpersonation);
+        eshImpersonation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent viewCollegeIntent = new Intent(CenterHead.this, ViewColleges.class);
+//                startActivity(viewCollegeIntent);
+            }
+        });
+        eshPermission = (ImageView) findViewById(R.id.eshPermission);
+        eshPermission.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 //                Intent viewCollegeIntent = new Intent(CenterHead.this, ViewColleges.class);
