@@ -4,6 +4,7 @@ package com.higgsontech.stella.Utils;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -25,6 +26,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+
+import static com.higgsontech.stella.Utils.Constants.PERMISSIONS_URL;
 
 
 public class BackgroundTask extends AsyncTask<String, Void, String> {
@@ -139,27 +142,79 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
                 Constants.updateSharedPrefence(Constants.fname, responseJson.getString(Constants.fname));
                 Constants.updateSharedPrefence(Constants.lname, responseJson.getString(Constants.lname));
                 Constants.updateSharedPrefence(Constants.designation, responseJson.getString(Constants.designation));
-                Constants.updateSharedPrefence(Constants.aadhar, responseJson.getString(Constants.aadhar));
-                Constants.updateSharedPrefence(Constants.office_pin, responseJson.getString(Constants.office_pin));
-                Constants.updateSharedPrefence(Constants.home_pin, responseJson.getString(Constants.home_pin));
-                Constants.updateSharedPrefence(Constants.signup_email, responseJson.getString(Constants.signup_email));
-                Constants.updateSharedPrefence(Constants.signup_password, responseJson.getString(Constants.signup_password));
-                Constants.updateSharedPrefence(Constants.mobile, responseJson.getString(Constants.mobile));
-                Constants.updateSharedPrefence(Constants.email, responseJson.getString(Constants.email));
-                Constants.updateSharedPrefence(Constants.password, responseJson.getString(Constants.password));
-
-
-
                 //Constants.updateSharedPrefence(Constants.permission, responseJson.getBoolean(Constants.permission));
                 Constants.updateSharedPrefence(Constants.permission, true);
-                Constants.updateSharedPrefence(Constants.isLoggedIn, true);
-                return response;
 
+                String u_id=Constants.fetchSharedPreferenceValues(Constants.id);
+
+                return response;
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
+        else if (method.equals("permission")) {
+
+            String submethod, permissionId,userId;
+            submethod       = params[1];
+            permissionId    = params[2];
+            userId          = params[2];
+
+            try {
+
+                URL url=null;
+                url=new URL(PERMISSIONS_URL);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+
+
+                Uri.Builder builder=new Uri.Builder();
+                builder.appendQueryParameter("method",submethod);
+                builder.appendQueryParameter("permissionId",permissionId);
+                builder.appendQueryParameter("userId",userId);
+                String query=builder.build().getEncodedQuery();
+
+                OutputStream OS = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(OS, "UTF-8"));
+                bufferedWriter.write(query);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                OS.close();
+
+                InputStream IS = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(IS, "iso-8859-1"));
+                String response = "";
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    response += line;
+                    Log.v("==========response", line);
+                }
+
+                bufferedReader.close();
+                IS.close();
+                httpURLConnection.disconnect();
+
+                Constants.updateSharedPrefence(Constants.PERMISSION_PENDING, response);
+//                JSONObject responseJson = (new JSONObject(response));
+//                Constants.updateSharedPrefence(Constants.id, responseJson.getString(Constants.id));
+//                Constants.updateSharedPrefence(Constants.fname, responseJson.getString(Constants.fname));
+//                Constants.updateSharedPrefence(Constants.lname, responseJson.getString(Constants.lname));
+//                Constants.updateSharedPrefence(Constants.designation, responseJson.getString(Constants.designation));
+//                //Constants.updateSharedPrefence(Constants.permission, responseJson.getBoolean(Constants.permission));
+//                Constants.updateSharedPrefence(Constants.permission, true);
+
+              //  String u_id=Constants.fetchSharedPreferenceValues(Constants.id);
+
+                return response;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
                 e.printStackTrace();
             }
 
@@ -182,7 +237,11 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
             signupAlertDialog.setMessage("Sign up success... Please Login");
             signupAlertDialog.setIcon(R.drawable.success);
             signupAlertDialog.show();
-        } else {
+        } else if(result.equals(Constants.PERMISSION_PENDING)){
+
+
+        }
+            else {
             if (result.equals("Y")) {
                 alertDialog.setMessage("Login Success");
                 alertDialog.setIcon(R.drawable.success);
@@ -193,8 +252,10 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
             } else {
                 alertDialog.setMessage("Invalid Username or Password! ");
                 alertDialog.setIcon(R.drawable.fail);
-                //alertDialog.show();
+                alertDialog.show();
+
             }
         }
     }
+
 }
