@@ -18,6 +18,16 @@ public class Constants {
     public static final String lname = "lname";
     public static final String designation = "designation";
     public static final String permission = "permissions";
+    public static final String aadhar = "aadhar";
+    public static final String office_pin = "office_pin";
+    public static final String home_pin = "home_pin";
+    public static final String signup_email = "signup_email";
+    public static final String signup_password = "signup_password";
+    public static final String mobile = "mobile";
+    public static final String email = "email";
+    public static final String password = "password";
+
+
 
     /*Officer Roles*/
     public static final String ROLE_CENTRAL_OFFICER = "Central Officer";

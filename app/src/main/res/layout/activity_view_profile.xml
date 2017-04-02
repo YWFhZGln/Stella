@@ -3,15 +3,14 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#004D40">
+    android:background="@color/Green">
 
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#004D40"
-        android:paddingTop="10dp"
+       android:background="@color/Blackclay"
 
         >
         <LinearLayout
@@ -22,7 +21,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center_horizontal">
+                android:gravity="center_horizontal"
+                android:background="#004D40"
+                >
 
                 <ImageView
                     android:id="@+id/imageView"
@@ -37,16 +38,20 @@
             android:layout_height="wrap_content"
             android:paddingRight="16dp"
             android:paddingLeft="16dp"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:background="#004D40">
             <TextView
+                android:id="@+id/changeprofile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Change Profile Picture"
                 android:textSize="14sp"
                 android:textColor="#ffffff"
                 android:paddingTop="10sp"
-                android:paddingBottom="2sp"
+                android:paddingBottom="20sp"
                 android:textAlignment="center"
+                android:onClick="changephoto"
+
                 />
         </LinearLayout>
         <LinearLayout
@@ -75,7 +80,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_edit_black_24dp"/>
-            <EditText
+            <TextView
                 android:id="@+id/name"
                 android:hint="e.g John"
                 android:layout_width="match_parent"
@@ -87,6 +92,7 @@
                 android:padding="4dp"
                 android:drawableRight="@drawable/ic_edit_black_24dp"
                 android:drawablePadding="10dp"
+                android:onClick="name"
                 />
         </RelativeLayout>
 
@@ -102,7 +108,8 @@
                 android:textSize="14sp"
                 android:textColor="#ffffff"
                 android:paddingTop="10dp"
-                android:paddingBottom="2sp" />
+                android:paddingBottom="2sp"
+                />
         </LinearLayout>
 
 
@@ -116,7 +123,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_edit_black_24dp"/>
-            <EditText
+            <TextView
                 android:id="@+id/gender"
                 android:hint="Male"
                 android:layout_width="match_parent"
@@ -128,6 +135,7 @@
                 android:padding="4dp"
                 android:drawableRight="@drawable/ic_edit_black_24dp"
                 android:drawablePadding="10dp"
+                android:onClick="gender"
                 />
         </RelativeLayout>
         <LinearLayout
@@ -156,7 +164,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_edit_black_24dp"/>
-            <EditText
+            <TextView
                 android:id="@+id/aadhar"
                 android:hint="####@@@@####"
                 android:layout_width="match_parent"
@@ -168,6 +176,7 @@
                 android:padding="4dp"
                 android:drawableRight="@drawable/ic_edit_black_24dp"
                 android:drawablePadding="10dp"
+                android:onClick="adhaarno"
                 />
         </RelativeLayout>
         <LinearLayout
@@ -196,7 +205,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_edit_black_24dp"/>
-            <EditText
+            <TextView
                 android:id="@+id/designation"
                 android:hint="Central OFFICER"
                 android:layout_width="match_parent"
@@ -208,6 +217,7 @@
                 android:padding="4dp"
                 android:drawableRight="@drawable/ic_edit_black_24dp"
                 android:drawablePadding="10dp"
+                android:onClick="designation"
                 />
         </RelativeLayout>
         <LinearLayout
@@ -236,7 +246,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_edit_black_24dp"/>
-            <EditText
+            <TextView
                 android:id="@+id/office"
                 android:hint="123456"
                 android:layout_width="match_parent"
@@ -248,6 +258,7 @@
                 android:padding="4dp"
                 android:drawableRight="@drawable/ic_edit_black_24dp"
                 android:drawablePadding="10dp"
+                android:onClick="Officepincode"
                 />
         </RelativeLayout>
         <LinearLayout
@@ -276,7 +287,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_edit_black_24dp"/>
-            <EditText
+            <TextView
                 android:id="@+id/home"
                 android:hint="123456"
                 android:layout_width="match_parent"
@@ -288,6 +299,7 @@
                 android:padding="4dp"
                 android:drawableRight="@drawable/ic_edit_black_24dp"
                 android:drawablePadding="10dp"
+                android:onClick="homepincode"
                 />
         </RelativeLayout>
         <LinearLayout
@@ -316,7 +328,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_edit_black_24dp"/>
-            <EditText
+            <TextView
                 android:id="@+id/CollegeName"
                 android:hint="email@email.com"
                 android:layout_width="match_parent"
@@ -327,6 +339,7 @@
                 android:padding="4dp"
                 android:drawableRight="@drawable/ic_edit_black_24dp"
                 android:drawablePadding="10dp"
+                android:onClick="email"
                 />
         </RelativeLayout>
         <LinearLayout
@@ -355,7 +368,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_edit_black_24dp"/>
-            <EditText
+            <TextView
                 android:id="@+id/mobile"
                 android:hint="12346789"
                 android:layout_width="match_parent"
@@ -367,12 +380,9 @@
                 android:drawableRight="@drawable/ic_edit_black_24dp"
                 android:drawablePadding="10dp"
                 android:layout_marginBottom="10dp"
+                android:onClick="mobile number"
                 />
         </RelativeLayout>
-
-
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -399,7 +409,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_edit_black_24dp"/>
-            <Button
+            <TextView
                 android:id="@+id/password"
                 android:hint="Change Now"
                 android:layout_width="match_parent"
@@ -409,6 +419,7 @@
                 android:textColor="#ff00610E"
                 android:drawableRight="@drawable/ic_edit_black_24dp"
                 android:drawablePadding="10dp"
+                android:onClick="password"
                 />
         </RelativeLayout>
 
