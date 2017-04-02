@@ -28,7 +28,7 @@ public class CenterHead extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.choosecollege);
+        setContentView(R.layout.center_head);
 
         //Initializing textview
         echExamCenter = (ImageView) findViewById(R.id.echExamCenter);

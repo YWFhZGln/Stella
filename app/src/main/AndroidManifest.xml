@@ -76,6 +76,12 @@
 
         <activity android:name=".Roles.Invigilator">
         </activity>
+        <activity android:name=".Roles.ZoneHead">
+        </activity>
+        <activity android:name=".Roles.OSDS">
+        </activity>
+        <activity android:name=".Roles.CentralOfficer">
+        </activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyC16Z0laYhW8Py27WMT6R9GpFT_HbziBFE"/>

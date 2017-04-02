@@ -18,6 +18,6 @@ public class OSDS  extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.center_head);
+        setContentView(R.layout.examcenterhead);
     }
 }
