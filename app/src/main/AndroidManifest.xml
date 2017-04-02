@@ -82,6 +82,8 @@
         </activity>
         <activity android:name=".Roles.CentralOfficer">
         </activity>
+        <activity android:name=".AuthActivity">
+        </activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyC16Z0laYhW8Py27WMT6R9GpFT_HbziBFE"/>

@@ -4,12 +4,16 @@ package com.higgsontech.stella.Roles;
  * Created by GUR23835 on 4/1/2017.
  */
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.higgsontech.stella.CityActivity;
+import com.higgsontech.stella.PaymentStatus;
 import com.higgsontech.stella.R;
+import com.higgsontech.stella.ViewFixedCentersActivity;
 
 public class ZoneHead extends AppCompatActivity {
 
@@ -28,13 +32,13 @@ public class ZoneHead extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.zonalofficer);
 
+        final ZoneHead ctx = this;
+
         zoAttendance = (ImageView) findViewById(R.id.zoAttendance);
         zoAttendance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO: Allocation of student on center
-//                Intent viewCollegeIntent = new Intent(ZoneHead.this, ViewColleges.class);
-//                startActivity(viewCollegeIntent);
+
             }
         });
 
@@ -42,9 +46,8 @@ public class ZoneHead extends AppCompatActivity {
         zoChooseCenter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO: Allocation of student on center
-//                Intent viewCollegeIntent = new Intent(ZoneHead.this, ViewColleges.class);
-//                startActivity(viewCollegeIntent);
+                Intent viewCollegeIntent = new Intent(ctx, ViewFixedCentersActivity.class);
+                startActivity(viewCollegeIntent);
             }
         });
 
@@ -53,8 +56,8 @@ public class ZoneHead extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //TODO: Allocation of student on center
-//                Intent viewCollegeIntent = new Intent(ZoneHead.this, ViewColleges.class);
-//                startActivity(viewCollegeIntent);
+                Intent viewCollegeIntent = new Intent(ctx, CityActivity.class);
+                startActivity(viewCollegeIntent);
             }
         });
 
@@ -73,8 +76,8 @@ public class ZoneHead extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //TODO: Allocation of student on center
-//                Intent viewCollegeIntent = new Intent(ZoneHead.this, ViewColleges.class);
-//                startActivity(viewCollegeIntent);
+                Intent viewCollegeIntent = new Intent(ctx, PaymentStatus.class);
+                startActivity(viewCollegeIntent);
             }
         });
 
