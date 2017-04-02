@@ -34,7 +34,7 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
 
 
     private Context ctx;
-    private AlertDialog alertDialog, signupAlertDialog;
+    private AlertDialog alertDialog, signupAlertDialog,permissionAlertDialog;
 
     public BackgroundTask(Context ctx) {
         this.ctx = ctx;
@@ -47,6 +47,8 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
         alertDialog.setTitle("Login Information");
         signupAlertDialog = new AlertDialog.Builder(ctx).create();
         signupAlertDialog.setTitle("Sign Up Information");
+        permissionAlertDialog = new AlertDialog.Builder(ctx).create();
+                permissionAlertDialog.setTitle("Permission Information");
     }
 
     @Override
@@ -238,8 +240,9 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
             signupAlertDialog.setIcon(R.drawable.success);
             signupAlertDialog.show();
         } else if(result.equals(Constants.PERMISSION_PENDING)){
-
-
+            alertDialog.setMessage("Your permission request has been submitted to us. We'll let you notify about that.");
+            alertDialog.setIcon(R.drawable.success);
+            alertDialog.show();
         }
             else {
             if (result.equals("Y")) {
