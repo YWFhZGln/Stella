@@ -15,7 +15,8 @@ public class ViewFixedCentersActivity extends AppCompatActivity implements Loade
     private static final String GET_CENTERS_URL="http://higgsontech.com/hack/fetchFixedCenters.php";
 
     View progressBar;
-    private CenterAdapter centerAdapter;
+    private FixedCenterAdapter centerAdapter;
+    //private ArrayAdapter<String> arrayAdapter;
 
 
 
@@ -28,10 +29,11 @@ public class ViewFixedCentersActivity extends AppCompatActivity implements Loade
         loaderManager.initLoader(9,null,this);
 
 
-        progressBar = findViewById(R.id.progressBar);
+        progressBar = findViewById(R.id.progressBar2);
 
-        final ListView centerListView=(ListView)findViewById(R.id.centerListView);
-        centerAdapter=new CenterAdapter(this,0,new ArrayList<Center>());
+        ListView centerListView=(ListView)findViewById(R.id.centerLV);
+
+        centerAdapter=new FixedCenterAdapter(ViewFixedCentersActivity.this,0,new ArrayList<Center>());
         centerListView.setAdapter(centerAdapter);
 
 
@@ -45,10 +47,15 @@ public class ViewFixedCentersActivity extends AppCompatActivity implements Loade
 
     @Override
     public void onLoadFinished(Loader<List<Center>> loader, List<Center> data) {
+        View progressBar=findViewById(R.id.progressBar2);
+        progressBar.setVisibility(View.GONE);
 
-
+        centerAdapter.clear();
+        centerAdapter.addAll(data);
 
     }
+
+
 
 
     @Override

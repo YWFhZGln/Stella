@@ -65,6 +65,8 @@
 
         <activity android:name=".CenterDetailsActivity"
             android:label="Fix the Exam Center"></activity>
+        <activity android:name=".ViewFixedCentersActivity"
+            android:label="All Fixed Centers"/>
         <activity android:name=".PermissionDenied"
             android:label="Deny Permissions to unauthorized users"></activity>
 

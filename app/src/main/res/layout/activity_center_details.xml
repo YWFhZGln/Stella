@@ -41,7 +41,7 @@
                android:inputType="number"/>
            <EditText
                android:id="@+id/fCapacity"
-               android:hint="Enter Faculty Capacity"
+               android:hint="Enter Faculty Required"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:inputType="number"/>
