@@ -15,12 +15,23 @@ import com.higgsontech.stella.Utils.Constants;
  */
 
 public class Permissions extends AppCompatActivity {
-    TextView status = (TextView) findViewById(R.id.permissionStatus);
-    Button b = (Button) findViewById(R.id.getPermisssionButton);
+
+    TextView status;
+
+
+
+
+
+    Button b;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.permissions);
+
+        status = (TextView) findViewById(R.id.permissionStatus);
+        b = (Button) findViewById(R.id.getPermisssionButton);
         final Context ctx = this;
         if(Constants.PERMISSION_PENDING.equals(null)) {
 

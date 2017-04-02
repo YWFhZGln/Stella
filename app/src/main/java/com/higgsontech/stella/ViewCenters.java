@@ -1,25 +1,23 @@
 package com.higgsontech.stella;
 
 import android.app.LoaderManager;
+import android.content.Intent;
 import android.content.Loader;
-import android.content.pm.PackageManager;
-import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
-import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.places.ui.PlacePicker;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,55 +26,71 @@ import java.util.List;
  * Created by cloud on 31/3/17.
  */
 
-public class ViewCenters extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks,GoogleApiClient.OnConnectionFailedListener,LocationListener,LoaderManager.LoaderCallbacks<List<Center>> {
+public class ViewCenters extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<Center>> {
 
     public static final String LOG_TAG = ViewCenters.class.getSimpleName();
+    private int PLACE_PICKER_REQUEST = 1;
 
 
     private GoogleApiClient apiClient;
     private LocationRequest locationRequest;
     private String lat;
-    private String alt;
     private String ltd;
     private String output;
     private CenterAdapter centerAdapter;
     View progressBar;
+    private TextView location;
+    private Button getloc;
+    private Button getCenters;
 
+
+    private static final String GET_CENTERS_URL="http://higgsontech.com/hack/fetchFixedCenters.php";
 
 
     private static final String PLACES_TEXT_SEARCH_URL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json";
     private static final String API_KEY="AIzaSyC16Z0laYhW8Py27WMT6R9GpFT_HbziBFE";
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_colleges);
+        setContentView(R.layout.activity_view_centers);
 
         final LoaderManager loaderManager=getLoaderManager();
+
+        location=(TextView)findViewById(R.id.location);
 
 
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
+        getCenters.setVisibility(View.GONE);
 
-        apiClient = new GoogleApiClient.Builder(this)
-                .addApi(LocationServices.API).addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this).build();
+
 
         final ListView centerListView=(ListView)findViewById(R.id.centerListView);
         centerAdapter=new CenterAdapter(ViewCenters.this,0,new ArrayList<Center>());
-        centerListView.setAdapter(centerAdapter);
+       // centerListView.setAdapter(centerAdapter);
+        loaderManager.initLoader(5,null,ViewCenters.this);
 
 
-        Button loadCenters=(Button)findViewById(R.id.loadFixedCenters);
-        loadCenters.setOnClickListener(new View.OnClickListener() {
+        getloc = (Button)findViewById(R.id.getLocation);
+        getloc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
-                loaderManager.initLoader(5,null,ViewCenters.this);
+                getloc.setVisibility(View.GONE);
 
 
+
+                PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
+
+                try {
+                    startActivityForResult(builder.build(ViewCenters.this), PLACE_PICKER_REQUEST);
+                } catch (GooglePlayServicesRepairableException e) {
+                    e.printStackTrace();
+                } catch (GooglePlayServicesNotAvailableException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -85,72 +99,6 @@ public class ViewCenters extends AppCompatActivity implements GoogleApiClient.Co
 
 
 
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        apiClient.connect();
-    }
-
-    @Override
-    protected void onStop() {
-        apiClient.disconnect();
-        super.onStop();
-    }
-
-
-    @Override
-    public void onConnected(@Nullable Bundle bundle) {
-
-        locationRequest = LocationRequest.create();
-        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        locationRequest.setInterval(3000);
-
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        LocationServices.FusedLocationApi.requestLocationUpdates(apiClient, locationRequest, this);
-
-
-    }
-
-    @Override
-    public void onConnectionSuspended(int i) {
-
-    }
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
-    }
-
-    @Override
-    public void onLocationChanged(Location location) {
-
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        location = LocationServices.FusedLocationApi.getLastLocation(apiClient);
-        lat=String.valueOf(location.getLatitude());
-        alt=String.valueOf(location.getAltitude());
-        ltd=String.valueOf(location.getLongitude());
-        output="lat: "+lat+",  lng: "+ltd;
-        Log.e("location",output);
 
     }
 
@@ -192,4 +140,25 @@ public class ViewCenters extends AppCompatActivity implements GoogleApiClient.Co
 
 
     }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == PLACE_PICKER_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                progressBar.setVisibility(View.GONE);
+                LatLngBounds place = PlacePicker.getLatLngBounds(data);
+                LatLng latLng=place.getCenter();
+                lat = String.format("%s", latLng.latitude);
+                ltd = String.format("%s", latLng.longitude);
+                String pl=String.format("Selected Location: %s",PlacePicker.getPlace(this,data).getAddress());
+                location.setText(pl);
+                getCenters.setVisibility(View.VISIBLE);
+
+
+
+
+            }
+        }
+    }
+
+
 }

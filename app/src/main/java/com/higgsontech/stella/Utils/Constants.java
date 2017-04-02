@@ -39,6 +39,10 @@ public class Constants {
     public static final int INT_ROLE_EXAM_CENTER_HEAD = 2;
     public static final int INT_ROLE_INVIGILATOR = 1;
 
+    public static final String PERMISSIONS_URL="";
+    public static final String PERMISSION_PENDING=null;
+
+
 
     private static SharedPreferences sharedpreferences = null;
 

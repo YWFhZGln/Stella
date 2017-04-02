@@ -6,25 +6,34 @@
     android:descendantFocusability="beforeDescendants"
     tools:context="com.higgsontech.stella.ViewCenters">
 
-    <ListView
-        android:id="@+id/centerListView"
+    <TextView
+        android:id="@+id/location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true">
-
-    </ListView>
-
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/colorAccent"
+        android:textSize="20sp"
+        />
     <Button
-        android:id="@+id/loadFixedCenters"
-        android:text="Load Nearby Centers"
-        android:layout_width="match_parent"
+        android:id="@+id/getLocation"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"/>
+        android:layout_centerInParent="true"
+        android:text="Select Your Location"/>
 
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:layout_centerInParent="true"/>
+
+    <Button
+        android:id="@+id/getCenters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Load Centers"
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

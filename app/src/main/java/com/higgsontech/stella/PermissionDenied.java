@@ -22,10 +22,10 @@ public class PermissionDenied extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.permissions);
-        button = (Button) findViewById(R.id.b1);
+        button = (Button) findViewById(R.id.getPermisssionButton);
 
         //Initializing textview
-        button = (Button) findViewById(R.id.b1);button.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(PermissionDenied.this);

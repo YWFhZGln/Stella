@@ -32,8 +32,8 @@
             android:label="View Colleges">
         </activity>
 
-        <activity android:name=".ImpersonationCheck"
-            android:label="Student's Impersonation Check">
+        <activity android:name=".Permissions"
+            android:label="Permission">
         </activity>
 
         <activity android:name=".PaymentStatus"
