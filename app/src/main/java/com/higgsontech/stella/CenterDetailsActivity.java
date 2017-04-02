@@ -32,6 +32,7 @@ public class CenterDetailsActivity extends AppCompatActivity implements LoaderMa
     String[] s;
     String placeId;
     String name;
+    String add;
 
     String roomNum;
     String studentCapacity;
@@ -72,7 +73,8 @@ public class CenterDetailsActivity extends AppCompatActivity implements LoaderMa
                 roomNums = (EditText)findViewById(R.id.roomNumbers);
                 fCapacity = (EditText)findViewById(R.id.fCapacity);
                 placeId = s[2];
-                name = s[1];
+                add=s[1];
+                name = s[0];
                 roomNum = roomNums.getText().toString();
                 studentCapacity = sCap.getText().toString();
                 facultyCapacity = fCapacity.getText().toString();
@@ -115,7 +117,7 @@ public class CenterDetailsActivity extends AppCompatActivity implements LoaderMa
     public Loader onCreateLoader(int id, Bundle args) {
         Log.e("ghfg","oncreate");
 
-        return new FixCenter(this,placeId,name,roomNum,studentCapacity,facultyCapacity,centerType);
+        return new FixCenter(this,placeId,name,add,roomNum,studentCapacity,facultyCapacity,centerType);
     }
 
     @Override
@@ -137,15 +139,17 @@ public class CenterDetailsActivity extends AppCompatActivity implements LoaderMa
 
         private String placeId;
         private String name;
+        private String address;
         private String noOfRooms;
         private String sCap;
         private String fCap;
         private String centerType;
 
-        public FixCenter(Context context, String pi, String n, String nor, String sc, String fc, String ct) {
+        public FixCenter(Context context, String pi, String n,String add, String nor, String sc, String fc, String ct) {
             super(context);
             this.placeId=pi;
             this.name=n;
+            address=add;
             this.noOfRooms=nor;
             this.sCap=sc;
             this.fCap=fc;
@@ -196,6 +200,7 @@ public class CenterDetailsActivity extends AppCompatActivity implements LoaderMa
                 Uri.Builder builder = new Uri.Builder();
                 builder.appendQueryParameter("centerPlaceId",placeId);
                 builder.appendQueryParameter("name",name);
+                builder.appendQueryParameter("address",address);
                 builder.appendQueryParameter("roomNumbers",noOfRooms);
                 builder.appendQueryParameter("sCapacity",sCap);
                 builder.appendQueryParameter("fCapacity",fCap);

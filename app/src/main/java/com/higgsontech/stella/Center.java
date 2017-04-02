@@ -12,6 +12,7 @@ public class Center {
     private String placeId;
     private double lat;
     private double lng;
+    private int noOfRooms;
     private int studentCapacity;
     private int facultyCapacity;
     private String studentType;
@@ -21,9 +22,16 @@ public class Center {
        this.studentType=d;
 
    }
-   Center(int sno,String n){
+   Center(int sno,String n,String add,int rn,int sc,int fc,String st){
        this.sno=sno;
-       this.placeId=n;
+       name=n;
+       address=add;
+       noOfRooms=rn;
+       studentCapacity=sc;
+       facultyCapacity=fc;
+       studentType=st;
+
+
    }
 
    Center(int sno,String n,String add,String placeId,double lat,double lng){
@@ -61,6 +69,14 @@ public class Center {
 
     public void setPlaceId(String placeId) {
         this.placeId = placeId;
+    }
+
+    public int getNoOfRooms() {
+        return noOfRooms;
+    }
+
+    public void setNoOfRooms(int noOfRooms) {
+        this.noOfRooms = noOfRooms;
     }
 
     public double getLat() {

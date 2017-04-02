@@ -34,22 +34,28 @@ public class FixedCenterLoader extends AsyncTaskLoader<List<Center>> {
     @Override
     public List<Center> loadInBackground() {
         String response = CenterLoader.makeHttpRequest(url);
-        List<Center> fCList=parse(response);
+         List<Center> ids=parse(response);
 
-        return fCList;
+        return ids;
     }
 
     private static List<Center> parse(String res) {
 
-        List<Center> fcenterList = new ArrayList<>();
 
+        List<Center> fcenterList=new ArrayList<>();
         try {
             JSONArray jsonArray = new JSONArray(res);
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject currentId = jsonArray.getJSONObject(i);
                 String placeId = currentId.getString("placeId");
-                Log.e(LOG_TAG, placeId);
-                Center center = new Center(i + 1, placeId);
+                String centerName=currentId.getString("name");
+                String centerAddress=currentId.getString("address");
+                int noofrooms=currentId.getInt("roomnum");
+                int scap=currentId.getInt("stdcap");
+                int freq=currentId.getInt("facreq");
+                String type=currentId.getString("type");
+                Log.e(LOG_TAG, centerName);
+                Center center=new Center(i+1,centerName,centerAddress,noofrooms,scap,freq,type);
                 fcenterList.add(center);
 
 
