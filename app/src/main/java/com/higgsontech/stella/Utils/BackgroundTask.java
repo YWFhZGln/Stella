@@ -152,8 +152,9 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
 
                 //Constants.updateSharedPrefence(Constants.permission, responseJson.getBoolean(Constants.permission));
                 Constants.updateSharedPrefence(Constants.permission, true);
+                Constants.updateSharedPrefence(Constants.isLoggedIn, true);
                 return response;
-                return response;
+
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -192,7 +193,7 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
             } else {
                 alertDialog.setMessage("Invalid Username or Password! ");
                 alertDialog.setIcon(R.drawable.fail);
-                alertDialog.show();
+                //alertDialog.show();
             }
         }
     }

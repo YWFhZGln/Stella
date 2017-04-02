@@ -18,7 +18,12 @@ import com.higgsontech.stella.ViewColleges;
 public class CenterHead extends AppCompatActivity {
 
     //Textview to show currently logged in user
-    private ImageView imageView;
+    private ImageView echExamCenter;
+    private ImageView echChooseCollege;
+    private ImageView echSelectExamCenter;
+    private ImageView echPayments;
+    private ImageView echCalender;
+    private ImageView echViewProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,28 +31,55 @@ public class CenterHead extends AppCompatActivity {
         setContentView(R.layout.choosecollege);
 
         //Initializing textview
-        imageView = (ImageView) findViewById(R.id.choose_college);
-        imageView.setOnClickListener(new View.OnClickListener() {
+        echExamCenter = (ImageView) findViewById(R.id.echExamCenter);
+        echExamCenter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent viewCollegeIntent = new Intent(CenterHead.this, ViewColleges.class);
-                startActivity(viewCollegeIntent);
+//                Intent viewCollegeIntent = new Intent(CenterHead.this, ViewColleges.class);
+//                startActivity(viewCollegeIntent);
+            }
+        });
+        echChooseCollege = (ImageView) findViewById(R.id.echChooseCollege);
+        echChooseCollege.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent viewCollegeIntent = new Intent(CenterHead.this, ViewColleges.class);
+//                startActivity(viewCollegeIntent);
+            }
+        });
+        echSelectExamCenter = (ImageView) findViewById(R.id.echSelectExamCenter);
+        echSelectExamCenter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent viewCollegeIntent = new Intent(CenterHead.this, ViewColleges.class);
+//                startActivity(viewCollegeIntent);
+            }
+        });
+        echViewProfile = (ImageView) findViewById(R.id.echViewProfile);
+        echViewProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent viewCollegeIntent = new Intent(CenterHead.this, ViewColleges.class);
+//                startActivity(viewCollegeIntent);
+            }
+        });
+        echCalender = (ImageView) findViewById(R.id.echCalender);
+        echCalender.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent viewCollegeIntent = new Intent(CenterHead.this, ViewColleges.class);
+//                startActivity(viewCollegeIntent);
+            }
+        });
+        echPayments = (ImageView) findViewById(R.id.echPayments);
+        echPayments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent viewCollegeIntent = new Intent(CenterHead.this, ViewColleges.class);
+//                startActivity(viewCollegeIntent);
             }
         });
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.choose_college) {
-            //calling logout method when the logout button is clicked
-            //chooseCollege();
 
-            Log.v("Test", "test");
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void chooseCollege() {
-    }
 }

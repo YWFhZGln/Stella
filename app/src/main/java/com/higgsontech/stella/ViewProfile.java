@@ -53,7 +53,7 @@ public class ViewProfile  extends AppCompatActivity {
         fname.setText(op);
         String hp=Constants.fetchSharedPreferenceValues(Constants.home_pin);
         fname.setText(hp);
-        String mobile=Constants.fetchSharedPreferenceValues(Constants.mobile);
-        fname.setText(mobile);
+        String mobileStr =Constants.fetchSharedPreferenceValues(Constants.mobile);
+        fname.setText(mobileStr);
     }
 }

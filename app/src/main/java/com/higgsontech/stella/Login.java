@@ -34,9 +34,8 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-
     }
+
 
     public void showSignUp(View view) {
         LinearLayout s = (LinearLayout) findViewById(R.id.signup_layout);
@@ -86,18 +85,20 @@ public class Login extends AppCompatActivity {
 
 
     public void login(View view) {
-        et_email = (EditText) findViewById(R.id.email);
-        et_password = (EditText) findViewById(R.id.password);
-        u_email = et_email.getText().toString();
-        u_password = et_password.getText().toString();
-        String method = "login";
+            et_email = (EditText) findViewById(R.id.email);
+            et_password = (EditText) findViewById(R.id.password);
+            u_email = et_email.getText().toString();
+            u_password = et_password.getText().toString();
+            String method = "login";
 
-        Constants.setSharedpreferences(getSharedPreferences("MyPref", 0));
-        BackgroundTask backgroundTask = new BackgroundTask(this);
-        backgroundTask.execute(method, u_email, u_password);
+            Constants.setSharedpreferences(getSharedPreferences("MyPref", 0));
+            BackgroundTask backgroundTask = new BackgroundTask(this);
+            backgroundTask.execute(method, u_email, u_password);
+
+
         try {
-            switch (Constants.fetchSharedPreferenceValues(Constants.designation)) {
-                case Constants.ROLE_CENTRAL_OFFICER:
+            switch (Integer.parseInt(Constants.fetchSharedPreferenceValues(Constants.designation))) {
+                case Constants.INT_ROLE_CENTRAL_OFFICER:
                     if (Constants.fetchSharedPreferenceValues(Constants.permission, true)) {
                         Intent coIntent = new Intent(Login.this, CentralOfficer.class);
                         startActivity(coIntent);
@@ -106,7 +107,7 @@ public class Login extends AppCompatActivity {
                         startActivity(deniedIntent);
                     }
                     break;
-                case Constants.ROLE_ZONAL_OFFICER:
+                case Constants.INT_ROLE_ZONAL_OFFICER:
                     if (Constants.fetchSharedPreferenceValues(Constants.permission, true)) {
                         Intent zhIntent = new Intent(Login.this, ZoneHead.class);
                         startActivity(zhIntent);
@@ -115,7 +116,7 @@ public class Login extends AppCompatActivity {
                         startActivity(deniedIntent);
                     }
                     break;
-                case Constants.ROLE_OSDS:
+                case Constants.INT_ROLE_OSDS:
                     if (Constants.fetchSharedPreferenceValues(Constants.permission, true)) {
                         Intent osdsIntent = new Intent(Login.this, OSDS.class);
                         startActivity(osdsIntent);
@@ -124,7 +125,7 @@ public class Login extends AppCompatActivity {
                         startActivity(deniedIntent);
                     }
                     break;
-                case Constants.ROLE_EXAM_CENTER_HEAD:
+                case Constants.INT_ROLE_EXAM_CENTER_HEAD:
                     if (Constants.fetchSharedPreferenceValues(Constants.permission, true)) {
                         Intent intent = new Intent(Login.this, CenterHead.class);
                         startActivity(intent);
@@ -133,7 +134,7 @@ public class Login extends AppCompatActivity {
                         startActivity(deniedIntent);
                     }
                     break;
-                case Constants.ROLE_INVIGILATOR:
+                case Constants.INT_ROLE_INVIGILATOR:
                     if (Constants.fetchSharedPreferenceValues(Constants.permission, true)) {
                         Intent intent = new Intent(Login.this, Invigilator.class);
                         startActivity(intent);

@@ -8,21 +8,18 @@ import android.content.SharedPreferences;
 
 
 public class Constants {
-    //public  static final String Login = "Login";
-    //public static final String MyPREFERENCES = "MyPREFERENCES";
-    public static final String Email = "email";
-    public static final String Passwd = "password";
     public static final String loginResponse = "lResponse";
     public static final String id = "id";
     public static final String fname = "fname";
     public static final String lname = "lname";
     public static final String designation = "designation";
     public static final String permission = "permissions";
+    public static final String isLoggedIn = "isLoggedIn";
     public static final String aadhar = "aadhar";
     public static final String office_pin = "office_pin";
     public static final String home_pin = "home_pin";
-    public static final String signup_email = "signup_email";
-    public static final String signup_password = "signup_password";
+    public static final String signup_email = "email";
+    public static final String signup_password = "password";
     public static final String mobile = "mobile";
     public static final String email = "email";
     public static final String password = "password";
@@ -35,6 +32,12 @@ public class Constants {
     public static final String ROLE_OSDS = "Officers on Special Duties";
     public static final String ROLE_EXAM_CENTER_HEAD = "Examination Center Head";
     public static final String ROLE_INVIGILATOR = "Invigilators";
+
+    public static final int INT_ROLE_CENTRAL_OFFICER = 5;
+    public static final int INT_ROLE_ZONAL_OFFICER = 4;
+    public static final int INT_ROLE_OSDS = 3;
+    public static final int INT_ROLE_EXAM_CENTER_HEAD = 2;
+    public static final int INT_ROLE_INVIGILATOR = 1;
 
 
     private static SharedPreferences sharedpreferences = null;

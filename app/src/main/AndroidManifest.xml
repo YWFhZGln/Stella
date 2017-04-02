@@ -71,6 +71,9 @@
 
         <activity android:name=".Roles.CenterHead">
     </activity>
+
+        <activity android:name=".Roles.Invigilator">
+        </activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyC16Z0laYhW8Py27WMT6R9GpFT_HbziBFE"/>
