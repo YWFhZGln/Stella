@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:descendantFocusability="beforeDescendants"
-    tools:context="com.higgsontech.stella.ViewColleges">
+    tools:context="com.higgsontech.stella.ViewCenters">
 
     <ListView
         android:id="@+id/centerListView"

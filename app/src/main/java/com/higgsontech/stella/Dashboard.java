@@ -24,12 +24,12 @@ public class Dashboard extends AppCompatActivity {
     }
     public void ViewColleges(View view)
     {
-        Intent i= new Intent(this,ViewColleges.class);
+        Intent i= new Intent(this,ViewCenters.class);
         startActivity(i);
     }
     public void ImpersonationCheck(View view)
     {
-        Intent i= new Intent(this,ImpersonationCheck.class);
+        Intent i= new Intent(this,AuthActivity.class);
         startActivity(i);
     }
     public void PaymentStatus(View view)

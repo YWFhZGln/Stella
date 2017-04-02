@@ -28,9 +28,9 @@ import java.util.List;
  * Created by cloud on 31/3/17.
  */
 
-public class ViewColleges  extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks,GoogleApiClient.OnConnectionFailedListener,LocationListener,LoaderManager.LoaderCallbacks<List<Center>> {
+public class ViewCenters extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks,GoogleApiClient.OnConnectionFailedListener,LocationListener,LoaderManager.LoaderCallbacks<List<Center>> {
 
-    public static final String LOG_TAG = ViewColleges.class.getSimpleName();
+    public static final String LOG_TAG = ViewCenters.class.getSimpleName();
 
 
     private GoogleApiClient apiClient;
@@ -65,7 +65,7 @@ public class ViewColleges  extends AppCompatActivity implements GoogleApiClient.
                 .addOnConnectionFailedListener(this).build();
 
         final ListView centerListView=(ListView)findViewById(R.id.centerListView);
-        centerAdapter=new CenterAdapter(ViewColleges.this,0,new ArrayList<Center>());
+        centerAdapter=new CenterAdapter(ViewCenters.this,0,new ArrayList<Center>());
         centerListView.setAdapter(centerAdapter);
 
 
@@ -74,7 +74,7 @@ public class ViewColleges  extends AppCompatActivity implements GoogleApiClient.
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
-                loaderManager.initLoader(5,null,ViewColleges.this);
+                loaderManager.initLoader(5,null,ViewCenters.this);
 
 
             }

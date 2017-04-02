@@ -28,7 +28,7 @@
             android:label="Dashboard">
         </activity>
 
-        <activity android:name=".ViewColleges"
+        <activity android:name=".ViewCenters"
             android:label="View Colleges">
         </activity>
 
