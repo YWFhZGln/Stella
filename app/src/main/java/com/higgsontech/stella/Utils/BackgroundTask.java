@@ -139,8 +139,20 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
                 Constants.updateSharedPrefence(Constants.fname, responseJson.getString(Constants.fname));
                 Constants.updateSharedPrefence(Constants.lname, responseJson.getString(Constants.lname));
                 Constants.updateSharedPrefence(Constants.designation, responseJson.getString(Constants.designation));
+                Constants.updateSharedPrefence(Constants.aadhar, responseJson.getString(Constants.aadhar));
+                Constants.updateSharedPrefence(Constants.office_pin, responseJson.getString(Constants.office_pin));
+                Constants.updateSharedPrefence(Constants.home_pin, responseJson.getString(Constants.home_pin));
+                Constants.updateSharedPrefence(Constants.signup_email, responseJson.getString(Constants.signup_email));
+                Constants.updateSharedPrefence(Constants.signup_password, responseJson.getString(Constants.signup_password));
+                Constants.updateSharedPrefence(Constants.mobile, responseJson.getString(Constants.mobile));
+                Constants.updateSharedPrefence(Constants.email, responseJson.getString(Constants.email));
+                Constants.updateSharedPrefence(Constants.password, responseJson.getString(Constants.password));
+
+
+
                 //Constants.updateSharedPrefence(Constants.permission, responseJson.getBoolean(Constants.permission));
                 Constants.updateSharedPrefence(Constants.permission, true);
+                return response;
                 return response;
             } catch (MalformedURLException e) {
                 e.printStackTrace();
