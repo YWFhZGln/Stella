@@ -14,6 +14,7 @@ import com.higgsontech.stella.CityActivity;
 import com.higgsontech.stella.PaymentStatus;
 import com.higgsontech.stella.R;
 import com.higgsontech.stella.ViewFixedCentersActivity;
+import com.higgsontech.stella.ViewProfile;
 
 public class ZoneHead extends AppCompatActivity {
 
@@ -66,7 +67,7 @@ public class ZoneHead extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //TODO: Allocation of student on center
-//                Intent viewCollegeIntent = new Intent(ZoneHead.this, ViewColleges.class);
+//                Intent viewCollegeIntent = new Intent(ZoneHead.this, ImpersonationTest.class);
 //                startActivity(viewCollegeIntent);
             }
         });
@@ -106,8 +107,8 @@ public class ZoneHead extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //TODO: Allocation of student on center
-//                Intent viewCollegeIntent = new Intent(ZoneHead.this, ViewColleges.class);
-//                startActivity(viewCollegeIntent);
+                Intent viewCollegeIntent = new Intent(ctx, ViewProfile.class);
+                startActivity(viewCollegeIntent);
             }
         });
 

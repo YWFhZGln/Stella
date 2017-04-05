@@ -22,9 +22,6 @@ public class ViewProfile  extends AppCompatActivity {
 
 
 
-        fetchSharedPreferenceValues(Constants.id);
-
-
         TextView fname=(TextView) findViewById(R.id.fname);
         TextView lname=(TextView) findViewById(R.id.lname);
         TextView aadhar=(TextView) findViewById(R.id.aadhar);
@@ -32,16 +29,16 @@ public class ViewProfile  extends AppCompatActivity {
         TextView home_pin=(TextView) findViewById(R.id.home_pin);
         TextView mobile=(TextView) findViewById(R.id.mobile);
 
-        fetchSharedPreferenceValues(Constants.lname);
-        fetchSharedPreferenceValues(Constants.designation);
-        fetchSharedPreferenceValues(Constants.aadhar);
-        fetchSharedPreferenceValues(Constants.office_pin);
-        fetchSharedPreferenceValues(Constants.home_pin);
-        fetchSharedPreferenceValues(Constants.signup_email);
-        fetchSharedPreferenceValues(Constants.signup_password);
-        fetchSharedPreferenceValues(Constants.mobile);
-        fetchSharedPreferenceValues(Constants.email);
-        fetchSharedPreferenceValues(Constants.password);
+//        fetchSharedPreferenceValues(Constants.lname);
+//        fetchSharedPreferenceValues(Constants.designation);
+//        fetchSharedPreferenceValues(Constants.aadhar);
+//        fetchSharedPreferenceValues(Constants.office_pin);
+//        fetchSharedPreferenceValues(Constants.home_pin);
+//        fetchSharedPreferenceValues(Constants.signup_email);
+//        fetchSharedPreferenceValues(Constants.signup_password);
+//        fetchSharedPreferenceValues(Constants.mobile);
+//        fetchSharedPreferenceValues(Constants.email);
+//        fetchSharedPreferenceValues(Constants.password);
 
         String fn=Constants.fetchSharedPreferenceValues(Constants.fname);
         fname.setText(fn);

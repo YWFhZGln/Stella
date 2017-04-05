@@ -6,7 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.util.Log;
+import android.widget.Toast;
 
 import com.higgsontech.stella.Dashboard;
 import com.higgsontech.stella.Login;
@@ -129,7 +129,7 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
                 String line;
                 while ((line = bufferedReader.readLine()) != null) {
                     response += line;
-                    Log.v("==========response", line);
+//                    Log.v("==========response", line);
                 }
 
                 bufferedReader.close();
@@ -142,8 +142,10 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
                 Constants.updateSharedPrefence(Constants.fname, responseJson.getString(Constants.fname));
                 Constants.updateSharedPrefence(Constants.lname, responseJson.getString(Constants.lname));
                 Constants.updateSharedPrefence(Constants.designation, responseJson.getString(Constants.designation));
-                //Constants.updateSharedPrefence(Constants.permission, responseJson.getBoolean(Constants.permission));
-                Constants.updateSharedPrefence(Constants.permission, true);
+                if (responseJson.getInt(Constants.permission) == 0)
+                    Constants.updateSharedPrefence(Constants.permission, false);
+                else
+                    Constants.updateSharedPrefence(Constants.permission, true);
 
                 String u_id = Constants.fetchSharedPreferenceValues(Constants.id);
 
@@ -192,7 +194,7 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
                 String line;
                 while ((line = bufferedReader.readLine()) != null) {
                     response += line;
-                    Log.v("==========response", line);
+//                    Log.v("==========response", line);
                 }
 
                 bufferedReader.close();
@@ -233,13 +235,10 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
 
             Intent i = new Intent(ctx, Login.class);
             ctx.startActivity(i);
-            signupAlertDialog.setMessage("Sign up success... Please Login");
-            signupAlertDialog.setIcon(R.drawable.success);
-            signupAlertDialog.show();
+            Toast.makeText(ctx, "Sign up success... Please Login", Toast.LENGTH_LONG).show();
         } else if (result.equals(Constants.PERMISSION_PENDING)) {
-            alertDialog.setMessage("Your permission request has been submitted to us. We'll let you notify about that.");
-            alertDialog.setIcon(R.drawable.success);
-            alertDialog.show();
+            Toast.makeText(ctx, "Your permission request has been submitted to us. We'll let you notify about that.", Toast.LENGTH_LONG).show();
+
         } else {
             if (result.equals("Y")) {
                 alertDialog.setMessage("Login Success");
@@ -249,9 +248,7 @@ public class BackgroundTask extends AsyncTask<String, Void, String> {
                 Intent i = new Intent(ctx, Dashboard.class);
                 ctx.startActivity(i);
             } else {
-                alertDialog.setMessage("Invalid Username or Password! ");
-                alertDialog.setIcon(R.drawable.fail);
-                alertDialog.show();
+                Toast.makeText(ctx, "Invalid Username or Password!", Toast.LENGTH_LONG).show();
 
             }
         }

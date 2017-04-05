@@ -11,6 +11,7 @@ import com.higgsontech.stella.CityActivity;
 import com.higgsontech.stella.PaymentStatus;
 import com.higgsontech.stella.R;
 import com.higgsontech.stella.ViewFixedCentersActivity;
+import com.higgsontech.stella.ViewProfile;
 
 /**
  * Created by GUR23835 on 4/1/2017.
@@ -62,8 +63,8 @@ public class CentralOfficer extends AppCompatActivity {
         coViewProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent viewCollegeIntent = new Intent(CenterHead.this, ViewColleges.class);
-//                startActivity(viewCollegeIntent);
+                Intent viewCollegeIntent = new Intent(ctx, ViewProfile.class);
+                startActivity(viewCollegeIntent);
             }
         });
         coPaymentStatus = (ImageView) findViewById(R.id.coPaymentStatus);

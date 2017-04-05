@@ -10,6 +10,7 @@ import com.higgsontech.stella.AuthActivity;
 import com.higgsontech.stella.PaymentStatus;
 import com.higgsontech.stella.R;
 import com.higgsontech.stella.ViewFixedCentersActivity;
+import com.higgsontech.stella.ViewProfile;
 
 /**
  * Created by GUR23835 on 4/1/2017.
@@ -58,7 +59,8 @@ final Invigilator ctx = this;
         iViewProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+            Intent i = new Intent(ctx, ViewProfile.class);
+                startActivity(i);
             }
         });
     }

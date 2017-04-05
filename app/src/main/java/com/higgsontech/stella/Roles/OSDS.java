@@ -11,6 +11,7 @@ import com.higgsontech.stella.AuthActivity;
 import com.higgsontech.stella.PaymentStatus;
 import com.higgsontech.stella.R;
 import com.higgsontech.stella.ViewFixedCentersActivity;
+import com.higgsontech.stella.ViewProfile;
 
 /**
  * Created by GUR23835 on 4/1/2017.
@@ -79,8 +80,8 @@ public class OSDS  extends AppCompatActivity {
         osdsViewProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent viewCollegeIntent = new Intent(CenterHead.this, ViewColleges.class);
-//                startActivity(viewCollegeIntent);
+                Intent viewCollegeIntent = new Intent(ctx, ViewProfile.class);
+                startActivity(viewCollegeIntent);
             }
         });
     }

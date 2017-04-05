@@ -17,11 +17,6 @@ import com.higgsontech.stella.Utils.Constants;
 public class Permissions extends AppCompatActivity {
 
     TextView status;
-
-
-
-
-
     Button b;
 
 

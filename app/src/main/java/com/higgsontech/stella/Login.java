@@ -6,12 +6,16 @@ package com.higgsontech.stella;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.higgsontech.stella.Roles.CenterHead;
 import com.higgsontech.stella.Roles.CentralOfficer;
@@ -20,6 +24,8 @@ import com.higgsontech.stella.Roles.OSDS;
 import com.higgsontech.stella.Roles.ZoneHead;
 import com.higgsontech.stella.Utils.BackgroundTask;
 import com.higgsontech.stella.Utils.Constants;
+
+import static com.higgsontech.stella.AuthUtils.context;
 
 
 public class Login extends AppCompatActivity {
@@ -85,15 +91,15 @@ public class Login extends AppCompatActivity {
 
 
     public void login(View view) {
-            et_email = (EditText) findViewById(R.id.email);
-            et_password = (EditText) findViewById(R.id.password);
-            u_email = et_email.getText().toString();
-            u_password = et_password.getText().toString();
-            String method = "login";
+        et_email = (EditText) findViewById(R.id.email);
+        et_password = (EditText) findViewById(R.id.password);
+        u_email = et_email.getText().toString();
+        u_password = et_password.getText().toString();
+        String method = "login";
 
-            Constants.setSharedpreferences(getSharedPreferences("MyPref", 0));
-            BackgroundTask backgroundTask = new BackgroundTask(this);
-            backgroundTask.execute(method, u_email, u_password);
+        Constants.setSharedpreferences(getSharedPreferences("MyPref", 0));
+        BackgroundTask backgroundTask = new BackgroundTask(this);
+        backgroundTask.execute(method, u_email, u_password);
 
 
         try {
@@ -149,4 +155,21 @@ public class Login extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+//    @Override
+//    public void onAttachedToWindow() {
+//        super.onAttachedToWindow();
+//        this.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD_DIALOG);
+//
+//    }
+
+
+//    @Override
+//    protected void onStop() {
+//        Constants.setSharedpreferences(null);
+//        SharedPreferences.Editor editor = getSharedPreferences("MyPref", 0).edit();
+//        editor.clear();
+//        editor.commit();
+//        super.onStop();
+//    }
 }

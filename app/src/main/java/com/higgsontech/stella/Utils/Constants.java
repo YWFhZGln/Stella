@@ -13,7 +13,7 @@ public class Constants {
     public static final String fname = "fname";
     public static final String lname = "lname";
     public static final String designation = "designation";
-    public static final String permission = "permissions";
+    public static final String permission = "permissionLevel";
     public static final String isLoggedIn = "isLoggedIn";
     public static final String aadhar = "aadhar";
     public static final String office_pin = "office_pin";
